@@ -1,0 +1,6 @@
+framework module Pods_NXMActionSheet_Tests {
+  umbrella header "Pods-NXMActionSheet_Tests-umbrella.h"
+
+  export *
+  module * { export * }
+}

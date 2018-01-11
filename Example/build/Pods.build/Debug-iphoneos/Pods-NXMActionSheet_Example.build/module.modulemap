@@ -1,0 +1,6 @@
+framework module Pods_NXMActionSheet_Example {
+  umbrella header "Pods-NXMActionSheet_Example-umbrella.h"
+
+  export *
+  module * { export * }
+}

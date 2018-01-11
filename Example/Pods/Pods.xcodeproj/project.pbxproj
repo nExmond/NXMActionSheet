@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		07619F85B7CBB9FBAF4AF3CDCAF214A7 /* NXMActionSheet-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 511FA18B2703605E2A746AC70AC2D9BB /* NXMActionSheet-dummy.m */; };
-		27CBD86360B3E74D9378DC83C345DC8A /* ReplaceMe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A73AD3923ECF1FD8D79F245A8E0FA9F /* ReplaceMe.swift */; };
 		2CBE78F22DB73C00AF3580F634301333 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
 		571E448E002D16581E4B959A46196ECD /* Pods-NXMActionSheet_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 9E89E38E67A91434A96F16E2625864A1 /* Pods-NXMActionSheet_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		57802CAB80C9C514F975ED5DA7742E41 /* Pods-NXMActionSheet_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4951A8D569B8A7115A8499CFAB1907BA /* Pods-NXMActionSheet_Tests-dummy.m */; };
@@ -17,6 +16,15 @@
 		C55DF999910FE56EF5817F3F9CA11386 /* NXMActionSheet-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = DE9E3D4AED8CFB63430E420F455EC1B3 /* NXMActionSheet-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CC6517B705B40626E0D90A949B81CA8A /* Pods-NXMActionSheet_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = CFF2A206A44F195E7661548D987D669B /* Pods-NXMActionSheet_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D8F9E5256B7E1F35F3207ADE27C1F88E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
+		EDEC6CB92007945E002819C8 /* NXMActionSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDEC6CB52007945E002819C8 /* NXMActionSheet.swift */; };
+		EDEC6CBA2007945E002819C8 /* NXMActionSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDEC6CB52007945E002819C8 /* NXMActionSheet.swift */; };
+		EDEC6CBB2007945E002819C8 /* NXMActionSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDEC6CB52007945E002819C8 /* NXMActionSheet.swift */; };
+		EDEC6CBC2007945E002819C8 /* NXMActionSheetItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDEC6CB72007945E002819C8 /* NXMActionSheetItemCell.swift */; };
+		EDEC6CBD2007945E002819C8 /* NXMActionSheetItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDEC6CB72007945E002819C8 /* NXMActionSheetItemCell.swift */; };
+		EDEC6CBE2007945E002819C8 /* NXMActionSheetItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDEC6CB72007945E002819C8 /* NXMActionSheetItemCell.swift */; };
+		EDEC6CBF2007945E002819C8 /* NXMActionSheetData.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDEC6CB82007945E002819C8 /* NXMActionSheetData.swift */; };
+		EDEC6CC02007945E002819C8 /* NXMActionSheetData.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDEC6CB82007945E002819C8 /* NXMActionSheetData.swift */; };
+		EDEC6CC12007945E002819C8 /* NXMActionSheetData.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDEC6CB82007945E002819C8 /* NXMActionSheetData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,29 +39,28 @@
 
 /* Begin PBXFileReference section */
 		02F40CF725E656AC5FDFCD0FC5E9669E /* Pods-NXMActionSheet_Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-NXMActionSheet_Tests-frameworks.sh"; sourceTree = "<group>"; };
-		08CC08AF698F2EDD80ED84A700230AF8 /* Pods-NXMActionSheet_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-NXMActionSheet_Tests.modulemap"; sourceTree = "<group>"; };
+		08CC08AF698F2EDD80ED84A700230AF8 /* Pods-NXMActionSheet_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-NXMActionSheet_Tests.modulemap"; sourceTree = "<group>"; };
 		09F988AF59DCBADF03A574CBE7194FEF /* Pods-NXMActionSheet_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-NXMActionSheet_Example-dummy.m"; sourceTree = "<group>"; };
-		1469207529024DBEB110A4272EA77C76 /* Pods_NXMActionSheet_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_NXMActionSheet_Example.framework; path = "Pods-NXMActionSheet_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1469207529024DBEB110A4272EA77C76 /* Pods_NXMActionSheet_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NXMActionSheet_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1995733CF9C03423F1D263A2C5A61AE2 /* Pods-NXMActionSheet_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-NXMActionSheet_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
-		2C07BE65618A308C35F3D64C1751C66E /* NXMActionSheet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = NXMActionSheet.framework; path = NXMActionSheet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2C07BE65618A308C35F3D64C1751C66E /* NXMActionSheet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = NXMActionSheet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F9AA1CEDC0D5E7AE2F625CF0884D0CF /* NXMActionSheet.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = NXMActionSheet.xcconfig; sourceTree = "<group>"; };
-		3B3B19F9E9A64EE2DE722121EA1ABC5F /* NXMActionSheet.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = NXMActionSheet.modulemap; sourceTree = "<group>"; };
+		3B3B19F9E9A64EE2DE722121EA1ABC5F /* NXMActionSheet.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = NXMActionSheet.modulemap; sourceTree = "<group>"; };
 		4951A8D569B8A7115A8499CFAB1907BA /* Pods-NXMActionSheet_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-NXMActionSheet_Tests-dummy.m"; sourceTree = "<group>"; };
 		4C9D9A08A313E306FAAEB88B14F0C3D4 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		511FA18B2703605E2A746AC70AC2D9BB /* NXMActionSheet-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "NXMActionSheet-dummy.m"; sourceTree = "<group>"; };
 		6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		6C6F23F17F0CBF45771EF75DB02E364F /* Pods-NXMActionSheet_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-NXMActionSheet_Example-acknowledgements.plist"; sourceTree = "<group>"; };
-		7A73AD3923ECF1FD8D79F245A8E0FA9F /* ReplaceMe.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ReplaceMe.swift; path = NXMActionSheet/Classes/ReplaceMe.swift; sourceTree = "<group>"; };
-		7BF95141FA7E3C52C7DBBA2FB53929E3 /* Pods_NXMActionSheet_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_NXMActionSheet_Tests.framework; path = "Pods-NXMActionSheet_Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7BF95141FA7E3C52C7DBBA2FB53929E3 /* Pods_NXMActionSheet_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NXMActionSheet_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		871759BA754C18D91AF9CE361BE89730 /* Pods-NXMActionSheet_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-NXMActionSheet_Example.release.xcconfig"; sourceTree = "<group>"; };
 		8B5B552DF23C2E7DBB606ADF583C2540 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		96EE8DC3E335802E2EA6326820F4E904 /* Pods-NXMActionSheet_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-NXMActionSheet_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		9795EEB84CA5D0FE555597B849DB21E2 /* Pods-NXMActionSheet_Tests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-NXMActionSheet_Tests-resources.sh"; sourceTree = "<group>"; };
 		99379EEC7324FB59CA4B827B5140ABBD /* Pods-NXMActionSheet_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-NXMActionSheet_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
 		9E89E38E67A91434A96F16E2625864A1 /* Pods-NXMActionSheet_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-NXMActionSheet_Example-umbrella.h"; sourceTree = "<group>"; };
 		9F178AD7C8E8E537AE8F0C22F41116D2 /* Pods-NXMActionSheet_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-NXMActionSheet_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		A33B8157E7FA8EDB20C30A2D99488AE7 /* Pods-NXMActionSheet_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-NXMActionSheet_Example.modulemap"; sourceTree = "<group>"; };
+		A33B8157E7FA8EDB20C30A2D99488AE7 /* Pods-NXMActionSheet_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-NXMActionSheet_Example.modulemap"; sourceTree = "<group>"; };
 		B30F8CCCD3B8B07C2F9A1775BF69D513 /* Pods-NXMActionSheet_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-NXMActionSheet_Example-frameworks.sh"; sourceTree = "<group>"; };
 		C3D04BB98086F14098CF2B28674FAE15 /* NXMActionSheet-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NXMActionSheet-prefix.pch"; sourceTree = "<group>"; };
 		C95262590A337B05F0E99E5BF5259B91 /* Pods-NXMActionSheet_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-NXMActionSheet_Example-resources.sh"; sourceTree = "<group>"; };
@@ -62,6 +69,10 @@
 		DE9E3D4AED8CFB63430E420F455EC1B3 /* NXMActionSheet-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NXMActionSheet-umbrella.h"; sourceTree = "<group>"; };
 		DF377E7D671FF936E96AB51CE024374E /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E69B7A253CE97769297F5DEBB9FEAF34 /* Pods-NXMActionSheet_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-NXMActionSheet_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
+		EDEC6CB52007945E002819C8 /* NXMActionSheet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NXMActionSheet.swift; path = NXMActionSheet/Classes/NXMActionSheet.swift; sourceTree = "<group>"; };
+		EDEC6CB62007945E002819C8 /* NXMActionSheet.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = NXMActionSheet.xib; path = NXMActionSheet/Classes/NXMActionSheet.xib; sourceTree = "<group>"; };
+		EDEC6CB72007945E002819C8 /* NXMActionSheetItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NXMActionSheetItemCell.swift; path = NXMActionSheet/Classes/NXMActionSheetItemCell.swift; sourceTree = "<group>"; };
+		EDEC6CB82007945E002819C8 /* NXMActionSheetData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NXMActionSheetData.swift; path = NXMActionSheet/Classes/NXMActionSheetData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,7 +170,10 @@
 		89C49157E7A8139DB7A8737D672D94A8 /* NXMActionSheet */ = {
 			isa = PBXGroup;
 			children = (
-				7A73AD3923ECF1FD8D79F245A8E0FA9F /* ReplaceMe.swift */,
+				EDEC6CB52007945E002819C8 /* NXMActionSheet.swift */,
+				EDEC6CB62007945E002819C8 /* NXMActionSheet.xib */,
+				EDEC6CB82007945E002819C8 /* NXMActionSheetData.swift */,
+				EDEC6CB72007945E002819C8 /* NXMActionSheetItemCell.swift */,
 				A55B541E774E06EC816125767D99B438 /* Support Files */,
 			);
 			name = NXMActionSheet;
@@ -296,6 +310,17 @@
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
 				LastUpgradeCheck = 0700;
+				TargetAttributes = {
+					15DF62CE326A9B96C71562FA0220E47A = {
+						LastSwiftMigration = 0920;
+					};
+					6F98175A787F7C1A8273A9A18D528ECD = {
+						LastSwiftMigration = 0920;
+					};
+					73E90AFEC6B4049EBD7B411F5F45591E = {
+						LastSwiftMigration = 0920;
+					};
+				};
 			};
 			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -322,6 +347,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				57802CAB80C9C514F975ED5DA7742E41 /* Pods-NXMActionSheet_Tests-dummy.m in Sources */,
+				EDEC6CBE2007945E002819C8 /* NXMActionSheetItemCell.swift in Sources */,
+				EDEC6CBB2007945E002819C8 /* NXMActionSheet.swift in Sources */,
+				EDEC6CC12007945E002819C8 /* NXMActionSheetData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -330,6 +358,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				87BB07D46C20A8518B0DDEC549C23D49 /* Pods-NXMActionSheet_Example-dummy.m in Sources */,
+				EDEC6CBD2007945E002819C8 /* NXMActionSheetItemCell.swift in Sources */,
+				EDEC6CBA2007945E002819C8 /* NXMActionSheet.swift in Sources */,
+				EDEC6CC02007945E002819C8 /* NXMActionSheetData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -338,7 +369,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				07619F85B7CBB9FBAF4AF3CDCAF214A7 /* NXMActionSheet-dummy.m in Sources */,
-				27CBD86360B3E74D9378DC83C345DC8A /* ReplaceMe.swift in Sources */,
+				EDEC6CBC2007945E002819C8 /* NXMActionSheetItemCell.swift in Sources */,
+				EDEC6CB92007945E002819C8 /* NXMActionSheet.swift in Sources */,
+				EDEC6CBF2007945E002819C8 /* NXMActionSheetData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -358,6 +391,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 9F178AD7C8E8E537AE8F0C22F41116D2 /* Pods-NXMActionSheet_Example.debug.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -382,6 +416,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -392,6 +427,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 2F9AA1CEDC0D5E7AE2F625CF0884D0CF /* NXMActionSheet.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -469,7 +505,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -484,6 +520,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 96EE8DC3E335802E2EA6326820F4E904 /* Pods-NXMActionSheet_Tests.debug.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -506,6 +543,8 @@
 				PRODUCT_NAME = Pods_NXMActionSheet_Tests;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -558,7 +597,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
@@ -571,6 +610,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D8A3FBE187F51ADFAF99C9447241B56F /* Pods-NXMActionSheet_Tests.release.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -593,6 +633,7 @@
 				PRODUCT_NAME = Pods_NXMActionSheet_Tests;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -604,6 +645,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 871759BA754C18D91AF9CE361BE89730 /* Pods-NXMActionSheet_Example.release.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -627,6 +669,7 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -638,6 +681,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 2F9AA1CEDC0D5E7AE2F625CF0884D0CF /* NXMActionSheet.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";

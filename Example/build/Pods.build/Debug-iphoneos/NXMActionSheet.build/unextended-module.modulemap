@@ -1,0 +1,10 @@
+framework module NXMActionSheet {
+  umbrella header "NXMActionSheet-umbrella.h"
+
+  export *
+  module * { export * }
+}
+
+module NXMActionSheet.__Swift {
+    exclude header "NXMActionSheet-Swift.h"
+}
