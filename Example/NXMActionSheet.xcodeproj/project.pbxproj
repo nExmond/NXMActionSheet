@@ -23,13 +23,8 @@
 		607FACDA1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		607FACDC1AFB9204008FA782 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		607FACDF1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
-		83C85338440D8CEEC9CBFB3F /* Pods_NXMActionSheet_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NXMActionSheet_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9DB768205AA7F39114A48297 /* Pods-NXMActionSheet_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NXMActionSheet_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-NXMActionSheet_Example/Pods-NXMActionSheet_Example.release.xcconfig"; sourceTree = "<group>"; };
-		AE091B21648E9D27A42DE6D1 /* Pods-NXMActionSheet_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NXMActionSheet_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NXMActionSheet_Tests/Pods-NXMActionSheet_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		AEF699A56DB7CFD1D73EDADF /* Pods_NXMActionSheet_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NXMActionSheet_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		BFA3CFE99EB8C31D8334A2E1 /* Pods-NXMActionSheet_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NXMActionSheet_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-NXMActionSheet_Tests/Pods-NXMActionSheet_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		E10EED74C1E94AC169A67E7B /* Pods-NXMActionSheet_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NXMActionSheet_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NXMActionSheet_Example/Pods-NXMActionSheet_Example.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -49,7 +44,6 @@
 			isa = PBXGroup;
 			children = (
 				AEF699A56DB7CFD1D73EDADF /* Pods_NXMActionSheet_Example.framework */,
-				83C85338440D8CEEC9CBFB3F /* Pods_NXMActionSheet_Tests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -59,8 +53,6 @@
 			children = (
 				E10EED74C1E94AC169A67E7B /* Pods-NXMActionSheet_Example.debug.xcconfig */,
 				9DB768205AA7F39114A48297 /* Pods-NXMActionSheet_Example.release.xcconfig */,
-				AE091B21648E9D27A42DE6D1 /* Pods-NXMActionSheet_Tests.debug.xcconfig */,
-				BFA3CFE99EB8C31D8334A2E1 /* Pods-NXMActionSheet_Tests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -69,7 +61,6 @@
 			isa = PBXGroup;
 			children = (
 				607FACD21AFB9204008FA782 /* Example */,
-				607FACE81AFB9204008FA782 /* Tests */,
 				607FACD11AFB9204008FA782 /* Products */,
 				2F875D165993D7DB3EDDBE46 /* Pods */,
 				2B38AC3DDCE2709F2F65425B /* Frameworks */,
@@ -102,23 +93,6 @@
 			isa = PBXGroup;
 			children = (
 				607FACD41AFB9204008FA782 /* Info.plist */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		607FACE81AFB9204008FA782 /* Tests */ = {
-			isa = PBXGroup;
-			children = (
-				607FACEB1AFB9204008FA782 /* Tests.swift */,
-				607FACE91AFB9204008FA782 /* Supporting Files */,
-			);
-			path = Tests;
-			sourceTree = "<group>";
-		};
-		607FACE91AFB9204008FA782 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				607FACEA1AFB9204008FA782 /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
