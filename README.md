@@ -5,10 +5,6 @@
 [![License](https://img.shields.io/cocoapods/l/NXMActionSheet.svg?style=flat)](http://cocoapods.org/pods/NXMActionSheet)
 [![Platform](https://img.shields.io/cocoapods/p/NXMActionSheet.svg?style=flat)](http://cocoapods.org/pods/NXMActionSheet)
 
-## Example
-
-To run the example project, clone the repo, and run `pod install` from the Example directory first.
-
 ## Requirements
 
 ## Installation
@@ -19,6 +15,16 @@ it, simply add the following line to your Podfile:
 ```ruby
 pod 'NXMActionSheet'
 ```
+
+## Usage
+
+```ruby
+usage
+```
+
+## Example
+
+To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
 ## Author
 
