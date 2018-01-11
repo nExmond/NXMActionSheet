@@ -28,8 +28,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		19EAB241AE35EEC405FE0CF3 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
-		4297627F1ADC952297C4C8FA /* NXMActionSheet.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = NXMActionSheet.podspec; path = ../NXMActionSheet.podspec; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* NXMActionSheet_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NXMActionSheet_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACD51AFB9204008FA782 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -40,7 +38,6 @@
 		607FACE51AFB9204008FA782 /* NXMActionSheet_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NXMActionSheet_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
-		61B1FF2C603D1505BE0100D9 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		83C85338440D8CEEC9CBFB3F /* Pods_NXMActionSheet_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NXMActionSheet_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9DB768205AA7F39114A48297 /* Pods-NXMActionSheet_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NXMActionSheet_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-NXMActionSheet_Example/Pods-NXMActionSheet_Example.release.xcconfig"; sourceTree = "<group>"; };
 		AE091B21648E9D27A42DE6D1 /* Pods-NXMActionSheet_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NXMActionSheet_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NXMActionSheet_Tests/Pods-NXMActionSheet_Tests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -92,8 +89,7 @@
 		607FACC71AFB9204008FA782 = {
 			isa = PBXGroup;
 			children = (
-				607FACF51AFB993E008FA782 /* Podspec Metadata */,
-				607FACD21AFB9204008FA782 /* Example for NXMActionSheet */,
+				607FACD21AFB9204008FA782 /* Example */,
 				607FACE81AFB9204008FA782 /* Tests */,
 				607FACD11AFB9204008FA782 /* Products */,
 				2F875D165993D7DB3EDDBE46 /* Pods */,
@@ -110,7 +106,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		607FACD21AFB9204008FA782 /* Example for NXMActionSheet */ = {
+		607FACD21AFB9204008FA782 /* Example */ = {
 			isa = PBXGroup;
 			children = (
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
@@ -120,7 +116,7 @@
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
 				607FACD31AFB9204008FA782 /* Supporting Files */,
 			);
-			name = "Example for NXMActionSheet";
+			name = Example;
 			path = NXMActionSheet;
 			sourceTree = "<group>";
 		};
@@ -147,16 +143,6 @@
 				607FACEA1AFB9204008FA782 /* Info.plist */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		607FACF51AFB993E008FA782 /* Podspec Metadata */ = {
-			isa = PBXGroup;
-			children = (
-				4297627F1ADC952297C4C8FA /* NXMActionSheet.podspec */,
-				61B1FF2C603D1505BE0100D9 /* README.md */,
-				19EAB241AE35EEC405FE0CF3 /* LICENSE */,
-			);
-			name = "Podspec Metadata";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
