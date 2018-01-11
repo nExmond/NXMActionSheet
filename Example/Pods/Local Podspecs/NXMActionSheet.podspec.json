@@ -1,22 +1,22 @@
 {
   "name": "NXMActionSheet",
-  "version": "0.1.0",
-  "summary": "A short description of NXMActionSheet.",
+  "version": "0.1.1",
+  "summary": "Easy to use Custom ActionSheet.",
   "description": "TODO: Add long description of the pod here.",
-  "homepage": "https://github.com/nexmond/NXMActionSheet",
+  "homepage": "https://github.com/nExmond/NXMActionSheet",
   "license": {
     "type": "MIT",
     "file": "LICENSE"
   },
   "authors": {
-    "nexmond": "nexmond@twinny.co.kr"
+    "nExmond": "rnpfr254@naver.com"
   },
   "source": {
-    "git": "https://github.com/nexmond/NXMActionSheet.git",
-    "tag": "0.1.0"
+    "git": "https://github.com/nExmond/NXMActionSheet.git",
+    "tag": "0.1.1"
   },
   "platforms": {
-    "ios": "8.0"
+    "ios": "9.0"
   },
   "source_files": "NXMActionSheet/Classes/**/*"
 }
