@@ -1,0 +1,6 @@
+framework module NXMActionSheet {
+  umbrella header "NXMActionSheet-umbrella.h"
+
+  export *
+  module * { export * }
+}

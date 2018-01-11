@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'NXMActionSheet_Example' do
+  pod 'NXMActionSheet', :path => '../'
+
+  target 'NXMActionSheet_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
