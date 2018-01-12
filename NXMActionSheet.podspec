@@ -30,14 +30,14 @@ TODO: Add long description of the pod here.
 
   s.ios.deployment_target = '9.0'
 
-  s.source_files = 'NXMActionSheet/Classes/**/*'
+  s.source_files = 'NXMActionSheet/Classes/*'
 
-  s.resources = 'NXMActionSheet/*.xib'
-  s.resource_bundles = {
-    'NXMActionSheet' => [
-        'Pod/**/*.xib'
-    ]
-  }
+  # s.resources = 'NXMActionSheet/Classes/*.xib'
+  # s.resource_bundles = {
+  #  'NXMActionSheet' => [
+  #      'Pod/**/*.xib'
+  #  ]
+  # }
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
