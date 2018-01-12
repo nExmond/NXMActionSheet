@@ -33,11 +33,11 @@ TODO: Add long description of the pod here.
   s.source_files = 'NXMActionSheet/Classes/*'
 
   s.resources = 'NXMActionSheet/Classes/*.xib'
-  s.resource_bundles = {
-   'NXMActionSheet' => [
-       'Pod/**/*.xib'
-   ]
-  }
+  # s.resource_bundles = {
+  #  'NXMActionSheet' => [
+  #      'Pod/**/*.xib'
+  #  ]
+  # }
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
