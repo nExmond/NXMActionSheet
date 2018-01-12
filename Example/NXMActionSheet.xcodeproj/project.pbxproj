@@ -13,6 +13,15 @@
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
+		EDEC6CC72008C766002819C8 /* CustomActionSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDEC6CC62008C766002819C8 /* CustomActionSheet.swift */; };
+		EDEC6CCC2008D289002819C8 /* CustomImageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDEC6CCB2008D289002819C8 /* CustomImageView.xib */; };
+		EDEC6CCE2008D29D002819C8 /* CustomTwoButtonView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDEC6CCD2008D29D002819C8 /* CustomTwoButtonView.xib */; };
+		EDEC6CD02008D2C7002819C8 /* CustomDatePickerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDEC6CCF2008D2C7002819C8 /* CustomDatePickerView.xib */; };
+		EDEC6CD22008D46E002819C8 /* CustomImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDEC6CD12008D46E002819C8 /* CustomImageView.swift */; };
+		EDEC6CD42008D4B9002819C8 /* CustomTwoButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDEC6CD32008D4B9002819C8 /* CustomTwoButtonView.swift */; };
+		EDEC6CD62008D4E3002819C8 /* CustomDatePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDEC6CD52008D4E3002819C8 /* CustomDatePickerView.swift */; };
+		EDEC6CD82008D94A002819C8 /* CustomLabelView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDEC6CD72008D94A002819C8 /* CustomLabelView.xib */; };
+		EDEC6CDA2008D954002819C8 /* CustomLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDEC6CD92008D954002819C8 /* CustomLabelView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +35,15 @@
 		9DB768205AA7F39114A48297 /* Pods-NXMActionSheet_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NXMActionSheet_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-NXMActionSheet_Example/Pods-NXMActionSheet_Example.release.xcconfig"; sourceTree = "<group>"; };
 		AEF699A56DB7CFD1D73EDADF /* Pods_NXMActionSheet_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NXMActionSheet_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E10EED74C1E94AC169A67E7B /* Pods-NXMActionSheet_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NXMActionSheet_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NXMActionSheet_Example/Pods-NXMActionSheet_Example.debug.xcconfig"; sourceTree = "<group>"; };
+		EDEC6CC62008C766002819C8 /* CustomActionSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomActionSheet.swift; sourceTree = "<group>"; };
+		EDEC6CCB2008D289002819C8 /* CustomImageView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomImageView.xib; sourceTree = "<group>"; };
+		EDEC6CCD2008D29D002819C8 /* CustomTwoButtonView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomTwoButtonView.xib; sourceTree = "<group>"; };
+		EDEC6CCF2008D2C7002819C8 /* CustomDatePickerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomDatePickerView.xib; sourceTree = "<group>"; };
+		EDEC6CD12008D46E002819C8 /* CustomImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImageView.swift; sourceTree = "<group>"; };
+		EDEC6CD32008D4B9002819C8 /* CustomTwoButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTwoButtonView.swift; sourceTree = "<group>"; };
+		EDEC6CD52008D4E3002819C8 /* CustomDatePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDatePickerView.swift; sourceTree = "<group>"; };
+		EDEC6CD72008D94A002819C8 /* CustomLabelView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomLabelView.xib; sourceTree = "<group>"; };
+		EDEC6CD92008D954002819C8 /* CustomLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLabelView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +101,7 @@
 				607FACD91AFB9204008FA782 /* Main.storyboard */,
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
+				EDEC6CC52008C26F002819C8 /* CustomActionSheet */,
 				607FACD31AFB9204008FA782 /* Supporting Files */,
 			);
 			name = Example;
@@ -95,6 +114,30 @@
 				607FACD41AFB9204008FA782 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		EDEC6CC52008C26F002819C8 /* CustomActionSheet */ = {
+			isa = PBXGroup;
+			children = (
+				EDEC6CCA2008D1AB002819C8 /* CustomViews */,
+				EDEC6CC62008C766002819C8 /* CustomActionSheet.swift */,
+			);
+			name = CustomActionSheet;
+			sourceTree = "<group>";
+		};
+		EDEC6CCA2008D1AB002819C8 /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+				EDEC6CCB2008D289002819C8 /* CustomImageView.xib */,
+				EDEC6CD12008D46E002819C8 /* CustomImageView.swift */,
+				EDEC6CCD2008D29D002819C8 /* CustomTwoButtonView.xib */,
+				EDEC6CD32008D4B9002819C8 /* CustomTwoButtonView.swift */,
+				EDEC6CCF2008D2C7002819C8 /* CustomDatePickerView.xib */,
+				EDEC6CD52008D4E3002819C8 /* CustomDatePickerView.swift */,
+				EDEC6CD72008D94A002819C8 /* CustomLabelView.xib */,
+				EDEC6CD92008D954002819C8 /* CustomLabelView.swift */,
+			);
+			name = CustomViews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -160,8 +203,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EDEC6CD82008D94A002819C8 /* CustomLabelView.xib in Resources */,
 				607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */,
+				EDEC6CD02008D2C7002819C8 /* CustomDatePickerView.xib in Resources */,
+				EDEC6CCC2008D289002819C8 /* CustomImageView.xib in Resources */,
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
+				EDEC6CCE2008D29D002819C8 /* CustomTwoButtonView.xib in Resources */,
 				607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -227,8 +274,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EDEC6CC72008C766002819C8 /* CustomActionSheet.swift in Sources */,
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
+				EDEC6CD42008D4B9002819C8 /* CustomTwoButtonView.swift in Sources */,
+				EDEC6CD62008D4E3002819C8 /* CustomDatePickerView.swift in Sources */,
+				EDEC6CDA2008D954002819C8 /* CustomLabelView.swift in Sources */,
+				EDEC6CD22008D46E002819C8 /* CustomImageView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

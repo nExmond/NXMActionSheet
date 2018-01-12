@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="CustomDatePickerView" customModule="NXMActionSheet_Example" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="256"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="iCl-hb-4a1">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="256"/>
+                    <date key="date" timeIntervalSinceReferenceDate="537449747.24831295">
+                        <!--2018-01-12 11:35:47 +0000-->
+                    </date>
+                </datePicker>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="iCl-hb-4a1" secondAttribute="bottom" id="BhY-Qq-pKZ"/>
+                <constraint firstItem="iCl-hb-4a1" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="GxP-7r-fOL"/>
+                <constraint firstAttribute="trailing" secondItem="iCl-hb-4a1" secondAttribute="trailing" id="bH1-f1-fvG"/>
+                <constraint firstItem="iCl-hb-4a1" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="emI-8I-iT7"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="datePicker" destination="iCl-hb-4a1" id="7sL-XT-gMq"/>
+            </connections>
+        </view>
+    </objects>
+</document>

@@ -19,6 +19,8 @@
 		EDEC6CBD2007945E002819C8 /* NXMActionSheetItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDEC6CB72007945E002819C8 /* NXMActionSheetItemCell.swift */; };
 		EDEC6CBF2007945E002819C8 /* NXMActionSheetData.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDEC6CB82007945E002819C8 /* NXMActionSheetData.swift */; };
 		EDEC6CC02007945E002819C8 /* NXMActionSheetData.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDEC6CB82007945E002819C8 /* NXMActionSheetData.swift */; };
+		EDEC6CFC20090771002819C8 /* NXMActionSheet.xib in Sources */ = {isa = PBXBuildFile; fileRef = EDEC6CFB200906FC002819C8 /* NXMActionSheet.xib */; };
+		EDEC6CFD20090776002819C8 /* NXMActionSheet.xib in Sources */ = {isa = PBXBuildFile; fileRef = EDEC6CFB200906FC002819C8 /* NXMActionSheet.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,10 +54,10 @@
 		C95262590A337B05F0E99E5BF5259B91 /* Pods-NXMActionSheet_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-NXMActionSheet_Example-resources.sh"; sourceTree = "<group>"; };
 		DE9E3D4AED8CFB63430E420F455EC1B3 /* NXMActionSheet-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NXMActionSheet-umbrella.h"; sourceTree = "<group>"; };
 		DF377E7D671FF936E96AB51CE024374E /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		EDEC6CB52007945E002819C8 /* NXMActionSheet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NXMActionSheet.swift; path = NXMActionSheet/Classes/NXMActionSheet.swift; sourceTree = "<group>"; };
-		EDEC6CB62007945E002819C8 /* NXMActionSheet.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = NXMActionSheet.xib; path = NXMActionSheet/Classes/NXMActionSheet.xib; sourceTree = "<group>"; };
-		EDEC6CB72007945E002819C8 /* NXMActionSheetItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NXMActionSheetItemCell.swift; path = NXMActionSheet/Classes/NXMActionSheetItemCell.swift; sourceTree = "<group>"; };
-		EDEC6CB82007945E002819C8 /* NXMActionSheetData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NXMActionSheetData.swift; path = NXMActionSheet/Classes/NXMActionSheetData.swift; sourceTree = "<group>"; };
+		EDEC6CB52007945E002819C8 /* NXMActionSheet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NXMActionSheet.swift; sourceTree = "<group>"; };
+		EDEC6CB72007945E002819C8 /* NXMActionSheetItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NXMActionSheetItemCell.swift; sourceTree = "<group>"; };
+		EDEC6CB82007945E002819C8 /* NXMActionSheetData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NXMActionSheetData.swift; sourceTree = "<group>"; };
+		EDEC6CFB200906FC002819C8 /* NXMActionSheet.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NXMActionSheet.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,10 +128,7 @@
 		89C49157E7A8139DB7A8737D672D94A8 /* NXMActionSheet */ = {
 			isa = PBXGroup;
 			children = (
-				EDEC6CB52007945E002819C8 /* NXMActionSheet.swift */,
-				EDEC6CB62007945E002819C8 /* NXMActionSheet.xib */,
-				EDEC6CB82007945E002819C8 /* NXMActionSheetData.swift */,
-				EDEC6CB72007945E002819C8 /* NXMActionSheetItemCell.swift */,
+				EDEC6CDC2008F431002819C8 /* Classes */,
 				A55B541E774E06EC816125767D99B438 /* Support Files */,
 			);
 			name = NXMActionSheet;
@@ -173,6 +172,17 @@
 				6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */,
 			);
 			name = iOS;
+			sourceTree = "<group>";
+		};
+		EDEC6CDC2008F431002819C8 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				EDEC6CB52007945E002819C8 /* NXMActionSheet.swift */,
+				EDEC6CFB200906FC002819C8 /* NXMActionSheet.xib */,
+				EDEC6CB82007945E002819C8 /* NXMActionSheetData.swift */,
+				EDEC6CB72007945E002819C8 /* NXMActionSheetItemCell.swift */,
+			);
+			path = Classes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -272,6 +282,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EDEC6CFD20090776002819C8 /* NXMActionSheet.xib in Sources */,
 				87BB07D46C20A8518B0DDEC549C23D49 /* Pods-NXMActionSheet_Example-dummy.m in Sources */,
 				EDEC6CBD2007945E002819C8 /* NXMActionSheetItemCell.swift in Sources */,
 				EDEC6CBA2007945E002819C8 /* NXMActionSheet.swift in Sources */,
@@ -283,6 +294,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EDEC6CFC20090771002819C8 /* NXMActionSheet.xib in Sources */,
 				07619F85B7CBB9FBAF4AF3CDCAF214A7 /* NXMActionSheet-dummy.m in Sources */,
 				EDEC6CBC2007945E002819C8 /* NXMActionSheetItemCell.swift in Sources */,
 				EDEC6CB92007945E002819C8 /* NXMActionSheet.swift in Sources */,

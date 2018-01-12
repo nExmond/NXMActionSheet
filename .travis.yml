@@ -2,24 +2,14 @@
 # * http://www.objc.io/issue-6/travis-ci.html
 # * https://github.com/supermarin/xcpretty#usage
 
-os: osx
 language: swift
 osx_image: xcode9
 branches:
   only:
     - master
 
-cache: cocoapods
-podfile: "Example/NXMActionSheet/Podfile"
+script: 
+- xcodebuild -workspace 'Example/NXMActionSheet.xcworkspace' -scheme 'NXMActionSheet-Example' -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO ENABLE_TESTABILITY=YES test | xcpretty
 
-before_install:
-- gem install cocoapods
-- pod install --project-directory="Example/NXMActionSheet"
-
-script:
-- set -o pipefail
-- xcodebuild -version
-- xcodebuild -showsdks
-
-xcodebuild -workspace "Example/NXMActionSheet.xcworkspace" -scheme "NXMActionSheet-Example" -destination "OS=11.1,name=iPhone X" -configuration Debug ONLY_ACTIVE_ARCH=NO ENABLE_TESTABILITY=YES test | xcpretty;
-pod lib lint;
+after_success:
+    - bash <(curl -s https://codecov.io/bash)

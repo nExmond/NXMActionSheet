@@ -4,17 +4,17 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
+        <deployment version="2304" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NXMActionSheet" customModule="mgo_dev" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NXMActionSheet" customModule="NXMActionSheet" customModuleProvider="target">
             <connections>
-                <outlet property="actionSheetBottom" destination="NJl-6c-rxx" id="JTG-Pb-8Wq"/>
-                <outlet property="actionSheetHeight" destination="gli-YT-Znx" id="pVx-xE-6KW"/>
-                <outlet property="actionSheetTableView" destination="zNx-lH-DIu" id="0AN-tJ-GhD"/>
-                <outlet property="backgroundView" destination="UCY-C3-xS5" id="Rz2-3m-H17"/>
+                <outlet property="actionSheetBottom" destination="NJl-6c-rxx" id="sku-7Q-VOe"/>
+                <outlet property="actionSheetHeight" destination="gli-YT-Znx" id="u26-ZK-CVS"/>
+                <outlet property="actionSheetTableView" destination="zNx-lH-DIu" id="WCR-I4-Mi9"/>
+                <outlet property="backgroundView" destination="UCY-C3-xS5" id="4ah-KJ-q3W"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -36,8 +36,8 @@
                                 <constraint firstAttribute="height" id="gli-YT-Znx"/>
                             </constraints>
                             <connections>
-                                <outlet property="dataSource" destination="-1" id="p8c-W0-y8F"/>
-                                <outlet property="delegate" destination="-1" id="f6v-PZ-eWG"/>
+                                <outlet property="dataSource" destination="-1" id="3zW-ml-JtE"/>
+                                <outlet property="delegate" destination="-1" id="bqF-IN-LWd"/>
                             </connections>
                         </tableView>
                     </subviews>
@@ -61,6 +61,7 @@
                 <constraint firstItem="zNx-lH-DIu" firstAttribute="top" secondItem="UCY-C3-xS5" secondAttribute="bottom" id="tGR-Cn-WQj"/>
                 <constraint firstAttribute="trailing" secondItem="Dgp-bt-ye1" secondAttribute="trailing" id="wDS-fe-2bc"/>
             </constraints>
+            <point key="canvasLocation" x="-308" y="62"/>
         </view>
     </objects>
 </document>

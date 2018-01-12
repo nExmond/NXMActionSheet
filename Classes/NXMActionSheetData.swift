@@ -7,34 +7,52 @@
 
 import UIKit
 
-enum NXMActionSheetItemType {
+public typealias NXMControlAction = (_ sener:UIView) -> Void
+
+public enum NXMActionSheetItemType {
     case CUSTOM(UIView?)
     case LABEL(String?)
-    case BUTTON(String?)
+    case BUTTON(String?,UIColor?,NXMControlAction?)
     case IMAGE(UIImage?)
-    case TEXT_FIELD(String?)
-    case SLIDER(Float)
+    case TEXT_FIELD(String?,UITextFieldDelegate?)
+    case SLIDER(Float,NXMControlAction?)
     case ACTIVITY_INDICATOR(UIActivityIndicatorViewStyle)
-    case PROGRESS(Float)
 }
 
-public class NXMActionSheetData: NSObject {
+open class NXMActionSheetData: NSObject {
     
     private var _view: UIView?
-    private var _height: CGFloat
-    private var _classType: AnyObject.Type
-    private var _usedCustomView: Bool = false
+    private var _height: CGFloat = 50.0
+    private var _classType: AnyObject.Type = NSObject.self
+    private var _usingMargin: Bool = true
+    private var _action: NXMControlAction?
     var tag : String?
     var subData : Any?
-    var touchClose:Bool = false
+    open var touchClose:Bool = false
     var selectionColor:UIColor = .clear
     var currentIdx:Int?
     var horizontalMargin:CGFloat = 16.0
     var verticalMargin:CGFloat = 8.0
     
-    var usedCustomView:Bool {
+    var usingMargin:Bool {
+        set{
+            _usingMargin = newValue
+            if newValue==false {
+                horizontalMargin = 0.0
+                verticalMargin = 0.0
+            }
+        }
         get{
-            return _usedCustomView
+            return _usingMargin
+        }
+    }
+    
+    var usedCustomView:Bool {
+        set{
+            usingMargin = !newValue
+        }
+        get{
+            return !usingMargin
         }
     }
     
@@ -57,7 +75,9 @@ public class NXMActionSheetData: NSObject {
     }
     
     
-    init(_ type:NXMActionSheetItemType, withTag:String? = nil, withTouchClose:Bool = false) {
+    public init(_ type:NXMActionSheetItemType, withTag:String? = nil, withTouchClose:Bool = false) {
+        
+        super.init()
         
         var setView:UIView!
         let defaultRect = CGRect(x: 0, y: 0, width:  UIScreen.main.bounds.width, height: 50)
@@ -71,9 +91,7 @@ public class NXMActionSheetData: NSObject {
         case .CUSTOM(let view):
             if let v = view {
                 setView = v
-                horizontalMargin = 0.0
-                verticalMargin = 0.0
-                _usedCustomView = true
+                usedCustomView = true
             }else{
                 setView = UIView(frame: rectWithoutMargin)
                 setView.backgroundColor = UIColor.white
@@ -85,27 +103,35 @@ public class NXMActionSheetData: NSObject {
             label.text = text
             setView = label
             
-        case .BUTTON(let title):
-            let button = UIButton(frame: rectWithoutMargin)
-            button.setTitleColor(.black, for: .normal)
+        case .BUTTON(let title, let color, let action):
+            let button = UIButton(frame: defaultRect)
+            _action = action
+            button.addTarget(self, action: #selector(controlAction(_:)), for: .touchUpInside)
+            button.backgroundColor = color ?? .white
+            button.setTitleColor((color==nil ? .black : .white), for: .normal)
             button.setTitle(title, for: .normal)
             setView = button
+            usingMargin = false
             
         case .IMAGE(let image):
-            let imageView = UIImageView(frame: rectWithoutMargin)
+            let imageView = UIImageView(frame: defaultRect)
             imageView.frame.size.height = imageView.frame.size.width*0.85
             imageView.contentMode = .scaleAspectFill
             imageView.image = image
             setView = imageView
+            usingMargin = false
             
-        case .TEXT_FIELD(let text):
-            let textField = UITextView(frame: rectWithoutMargin)
+        case .TEXT_FIELD(let text, let delegate):
+            let textField = UITextField(frame: rectWithoutMargin)
+            textField.delegate = delegate
             textField.textColor = .black
             textField.text = text
             setView = textField
             
-        case .SLIDER(let value):
+        case .SLIDER(let value, let action):
             let slider = UISlider(frame: rectWithoutMargin)
+            _action = action
+            slider.addTarget(self, action: #selector(controlAction(_:)), for: .valueChanged)
             slider.value = value
             setView = slider
             
@@ -115,16 +141,11 @@ public class NXMActionSheetData: NSObject {
             indicator.startAnimating()
             setView = indicator
             
-        case .PROGRESS(let progress):
-            let progressContainer = UIView(frame: rectWithoutMargin)
-            let progressView = UIProgressView(frame: CGRect(x: 0.0, y: (rectWithoutMargin.height-2.0)/2, width: rectWithoutMargin.width, height: 2.0))
-            progressView.progress = progress
-            progressContainer.addSubview(progressView)
-            setView = progressContainer
-            
         }
         setView.isUserInteractionEnabled = true
-        setView.backgroundColor = .clear
+        if setView.backgroundColor == .white {
+            setView.backgroundColor = .clear
+        }
         
         _view = setView
         _height = setView.bounds.size.height
@@ -134,7 +155,10 @@ public class NXMActionSheetData: NSObject {
         
         touchClose = withTouchClose
         
-        super.init()
     }
-
+    
+    @objc private func controlAction(_ sender: UIView) {
+        _action?(sender)
+    }
+    
 }

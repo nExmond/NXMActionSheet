@@ -7,21 +7,21 @@
 
 import UIKit
 
-typealias NXMActionSheetCompletion = ()->Void
+public typealias NXMActionSheetCompletion = ()->Void
 
-enum NXMActionSheetAnimationType {
+public enum NXMActionSheetAnimationType {
     case FADE, SLIDE
 }
 
-enum NXMActionSheetItemUpdate {
+public enum NXMActionSheetItemUpdate {
     case INSERT([Int]), RELOAD([Int]), DELETE([Int])
 }
 
-enum NXMActionSheetScrollTo {
+public enum NXMActionSheetScrollTo {
     case NONE, TOP, MIDDLE, BOTTOM
 }
 
-@objc protocol NXMActionSheetDelegate {
+@objc public protocol NXMActionSheetDelegate {
     @objc func didSelectActionItem(_ actionSheet:NXMActionSheet, withData:NXMActionSheetData)
     @objc optional func actionSheetWillShow()
     @objc optional func actionSheetDidShow()
@@ -31,9 +31,9 @@ enum NXMActionSheetScrollTo {
     @objc optional func actionSheetDidUpdate()
 }
 
-public class NXMActionSheet : UIView, UITableViewDataSource, UITableViewDelegate {
+open class NXMActionSheet : UIView, UITableViewDataSource, UITableViewDelegate {
     
-    var delegate:NXMActionSheetDelegate?
+    public var delegate:NXMActionSheetDelegate?
     let reuseIdentifier = "NXMActionSheetItemCell"
     
     @IBOutlet var backgroundView: UIView!
@@ -41,7 +41,7 @@ public class NXMActionSheet : UIView, UITableViewDataSource, UITableViewDelegate
     @IBOutlet var actionSheetHeight: NSLayoutConstraint!
     @IBOutlet var actionSheetBottom: NSLayoutConstraint!
     
-    var items:Array<NXMActionSheetData> = Array()
+    open var items:Array<NXMActionSheetData> = Array()
     
     var tableviewHeight:CGFloat = 0.0
     var view:UIView!
@@ -50,13 +50,12 @@ public class NXMActionSheet : UIView, UITableViewDataSource, UITableViewDelegate
         willSet(newData) {
             self.itemList = newData
             
-            //높이 계산
             let maxHeight = UIScreen.main.bounds.size.height - UIApplication.shared.statusBarFrame.height
             let contentHeight = newData.map{$0.height}.reduce(0.0,+)
             self.tableviewHeight = min(maxHeight, contentHeight)
             self.actionSheetHeight.constant = self.tableviewHeight
             
-            //스크롤 여부
+            
             self.actionSheetTableView.isScrollEnabled = (contentHeight > maxHeight)
             let alpha:CGFloat = newData.count > 0 ? 1.0 : 0.0
             
@@ -77,13 +76,15 @@ public class NXMActionSheet : UIView, UITableViewDataSource, UITableViewDelegate
     }
     var animationType:NXMActionSheetAnimationType = .SLIDE
     
-    convenience init (delegate:NXMActionSheetDelegate?=nil, withType:NXMActionSheetAnimationType = .SLIDE) {
+    //MARK: - Initialize -
+    
+    public convenience init (delegate:NXMActionSheetDelegate?=nil, withType:NXMActionSheetAnimationType = .SLIDE) {
         self.init(frame:UIScreen.main.bounds)
         self.delegate = delegate
         self.animationType = withType
     }
     
-    override init(frame: CGRect) {
+    public override init(frame: CGRect) {
         super.init(frame: (frame == .zero ? UIScreen.main.bounds : frame))
         loadXib()
     }
@@ -125,10 +126,7 @@ public class NXMActionSheet : UIView, UITableViewDataSource, UITableViewDelegate
         close()
     }
     
-    public override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        print("")
-    }
-    
+    //MARK: - TableView functions -
     
     public func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -149,12 +147,21 @@ public class NXMActionSheet : UIView, UITableViewDataSource, UITableViewDelegate
         let sheetData = itemList[indexPath.row]
         cell?.bindingSheetData(sheetData)
         
+        if sheetData.touchClose {
+            if let button = sheetData.view as? UIButton {
+                let count = button.allTargets
+                if button.allTargets.count < 2 {
+                    button.addTarget(self, action: #selector(tapAction(_:)), for: .touchUpInside)
+                }
+            }
+        }
+        
         if cell != nil {
             
             let cellContentView = cell!.contentView
             let innerView = sheetData.view!
             
-            //autoResizing 적용
+            
             innerView.translatesAutoresizingMaskIntoConstraints = false
             if #available(iOS 9.0, *) {
                 NSLayoutConstraint.activate([innerView.leadingAnchor.constraint(equalTo: cellContentView.leadingAnchor, constant: sheetData.horizontalMargin),
@@ -174,7 +181,7 @@ public class NXMActionSheet : UIView, UITableViewDataSource, UITableViewDelegate
         let data = itemList[indexPath.row]
         data.currentIdx = indexPath.row
         
-        //선택 색상이 지정되어 있으면 애니메이션
+        
         if data.selectionColor != .clear {
             if let cell = tableView.cellForRow(at: indexPath) as? NXMActionSheetItemCell {
                 
@@ -197,21 +204,28 @@ public class NXMActionSheet : UIView, UITableViewDataSource, UITableViewDelegate
         }
     }
     
+    
+    //MARK: - Items Add or AddingEnd -
         
-    func add(_ data:NXMActionSheetData) -> NXMActionSheet {
-        items.append(data); return self
+    public func add(_ data:NXMActionSheetData) -> NXMActionSheet {
+        items.append(data)
+        return self
     }
     
-    func end(_ data:NXMActionSheetData?){
+    public func end(_ data:NXMActionSheetData?){
         if data != nil {
             items.append(data!)
         }
     }
+    
+    
+    
+    //MARK: - Show / Update / Close -
 
-    func show(scrollTo:NXMActionSheetScrollTo = .NONE, inViewController:UIViewController? = nil) {
+    public func show(scrollTo:NXMActionSheetScrollTo = .NONE, inViewController:UIViewController? = nil) {
         
         delegate?.actionSheetWillShow?()
-        let topNavigationController = topViewController(controller: inViewController)
+        let topNavigationController = UIViewController.topViewController(controller: inViewController)
         
         topNavigationController?.view.addSubview(self)
         self.layoutIfNeeded()
@@ -222,18 +236,20 @@ public class NXMActionSheet : UIView, UITableViewDataSource, UITableViewDelegate
         }
     }
     
-    func update(_ state:NXMActionSheetItemUpdate? = nil, scrollTo:NXMActionSheetScrollTo = .NONE, complete:NXMActionSheetCompletion? = nil) {
+    public func update(_ state:NXMActionSheetItemUpdate? = nil, scrollTo:NXMActionSheetScrollTo = .NONE, complete:NXMActionSheetCompletion? = nil) {
         
         delegate?.actionSheetWillUpdate?()
         
         itemList = items
+        
+        CATransaction.begin()
+        CATransaction.setCompletionBlock { [weak self] in
+            guard let strongSelf = self else { return }
+            strongSelf.delegate?.actionSheetDidUpdate?()
+            complete?()
+        }
         if state != nil {
             
-            CATransaction.begin()
-            CATransaction.setCompletionBlock { [weak self] in
-                guard let strongSelf = self else { return }
-                strongSelf.delegate?.actionSheetDidUpdate?()
-            }
             self.actionSheetTableView.beginUpdates()
             
             switch state! {
@@ -246,10 +262,10 @@ public class NXMActionSheet : UIView, UITableViewDataSource, UITableViewDelegate
             }
             
             self.actionSheetTableView.endUpdates()
-            CATransaction.commit()
         }else{
             self.actionSheetTableView.reloadData()
         }
+        CATransaction.commit()
         
         if scrollTo != .NONE {
             
@@ -268,9 +284,9 @@ public class NXMActionSheet : UIView, UITableViewDataSource, UITableViewDelegate
                 self.actionSheetTableView.contentOffset = CGPoint(x: 0, y: max(y,0))
             })
         }
-}
-
-    func close() {
+    }
+    
+    public func close() {
         
         delegate?.actionSheetWillHide?()
         
@@ -300,11 +316,9 @@ public class NXMActionSheet : UIView, UITableViewDataSource, UITableViewDelegate
     }
     
     
+    //MARK: - Utils -
     
-    
-    
-    //태그로 셀 인덱스 찾기
-    func searchByTag(_ tag:String) -> Int? {
+    public func searchByTag(_ tag:String) -> Int? {
         
         if let searchedData = itemList.filter({$0.tag==tag}).first {
             return itemList.index(of: searchedData)
@@ -312,23 +326,21 @@ public class NXMActionSheet : UIView, UITableViewDataSource, UITableViewDelegate
         return nil
     }
     
-    //특정 셀 종류의 개수 세기
-    func countKind<T:UIView>(of:T) -> Int {
+    public func countKind<T:UIView>(of:T) -> Int {
         return itemList.filter{$0.view!.isKind(of: T.classForCoder())}.count
     }
     
-    //컨텐츠 높이 계산
-    func getContentHeight() -> CGFloat {
+    public func getContentHeight() -> CGFloat {
         return itemList.map{$0.height}.reduce(0.0,+)
     }
     
+}
+
+//MARK: - Extensions -
+
+extension UIViewController {
     
-    
-    
-    //Utils
-    
-    //가장 상위 뷰컨트롤러 얻기
-    func topViewController(controller: UIViewController?) -> UIViewController? {
+    class func topViewController(controller: UIViewController?) -> UIViewController? {
         var viewController = controller
         if viewController == nil {
             viewController = UIApplication.shared.keyWindow?.rootViewController
@@ -346,10 +358,22 @@ public class NXMActionSheet : UIView, UITableViewDataSource, UITableViewDelegate
         }
         return viewController
     }
-    
 }
 
 extension UIView {
+    
+    public class var nibName: String {
+        let name = "\(self)".components(separatedBy: ".").first ?? ""
+        return name
+    }
+    
+    public class func loadUINibView<T:UIView>() -> T {
+        return UINib(nibName: nibName, bundle: Bundle(for: self)).instantiate(withOwner: self, options: nil)[0] as! T
+    }
+    
+    public class func loadUINib() -> UINib {
+        return UINib(nibName: nibName, bundle: Bundle(for: self))
+    }
     
     public func setDropShadow(offset:CGSize = CGSize.zero, withColor:UIColor = UIColor.black, withAlpha:Float = 0.125, withRadius:CGFloat = 8.0, toDraw: UIView? = nil) {
         DispatchQueue.main.async { [weak self] in
@@ -371,3 +395,9 @@ extension UIView {
         }
     }
 }
+
+postfix operator |
+extension Array {
+    static postfix func | (end: Array) { }
+}
+

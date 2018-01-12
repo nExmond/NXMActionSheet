@@ -20,11 +20,68 @@
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="f9s-3K-7wL">
+                                <rect key="frame" x="32" y="205.5" width="311" height="256"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ActionSheet Presets" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MTp-aK-xi1">
+                                        <rect key="frame" x="0.0" y="0.0" width="311" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="fmi-W3-dej">
+                                        <rect key="frame" x="0.0" y="53" width="311" height="29"/>
+                                        <segments>
+                                            <segment title="default"/>
+                                            <segment title="Custom"/>
+                                            <segment title="Mixed"/>
+                                        </segments>
+                                    </segmentedControl>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Animation Type" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Htv-Mq-wRb">
+                                        <rect key="frame" x="0.0" y="113" width="311" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="X9d-HC-qQF">
+                                        <rect key="frame" x="0.0" y="166" width="311" height="29"/>
+                                        <segments>
+                                            <segment title="Slide"/>
+                                            <segment title="Fade"/>
+                                        </segments>
+                                    </segmentedControl>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vV3-3V-vX3">
+                                        <rect key="frame" x="0.0" y="226" width="311" height="30"/>
+                                        <state key="normal" title="Show"/>
+                                        <connections>
+                                            <action selector="show:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="4Fl-B2-SUS"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="256" id="QbZ-k7-JjP"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="f9s-3K-7wL" firstAttribute="centerY" secondItem="kh9-bI-dsS" secondAttribute="centerY" id="0O0-fs-OR6"/>
+                            <constraint firstItem="f9s-3K-7wL" firstAttribute="top" relation="greaterThanOrEqual" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="32" id="7QK-q7-yhg"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" relation="greaterThanOrEqual" secondItem="f9s-3K-7wL" secondAttribute="bottom" constant="32" id="X1h-4A-t35"/>
+                            <constraint firstAttribute="trailing" secondItem="f9s-3K-7wL" secondAttribute="trailing" constant="32" id="hX5-Tg-Ct5"/>
+                            <constraint firstItem="f9s-3K-7wL" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="qgk-SP-pxp"/>
+                            <constraint firstItem="f9s-3K-7wL" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="32" id="uqu-pY-QHp"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="animationTypeSegment" destination="X9d-HC-qQF" id="Pad-eo-h68"/>
+                        <outlet property="presetsSegment" destination="fmi-W3-dej" id="VJm-Hx-TqK"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="161" y="119"/>
         </scene>
     </scenes>
 </document>
