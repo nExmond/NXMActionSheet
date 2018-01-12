@@ -182,7 +182,8 @@
 				EDEC6CB82007945E002819C8 /* NXMActionSheetData.swift */,
 				EDEC6CB72007945E002819C8 /* NXMActionSheetItemCell.swift */,
 			);
-			path = Classes;
+			name = Classes;
+			path = NXMActionSheet/Classes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
