@@ -74,7 +74,7 @@ open class NXMActionSheet : UIView, UITableViewDataSource, UITableViewDelegate {
             }
         }
     }
-    var animationType:NXMActionSheetAnimationType = .SLIDE
+    public var animationType:NXMActionSheetAnimationType = .SLIDE
     
     //MARK: - Initialize -
     
@@ -149,7 +149,6 @@ open class NXMActionSheet : UIView, UITableViewDataSource, UITableViewDelegate {
         
         if sheetData.touchClose {
             if let button = sheetData.view as? UIButton {
-                let count = button.allTargets
                 if button.allTargets.count < 2 {
                     button.addTarget(self, action: #selector(tapAction(_:)), for: .touchUpInside)
                 }

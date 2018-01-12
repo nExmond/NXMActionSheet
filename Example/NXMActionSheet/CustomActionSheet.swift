@@ -14,6 +14,7 @@ class CustomActionSheet : NXMActionSheet, NXMActionSheetDelegate {
     convenience init (withType:NXMActionSheetAnimationType = .SLIDE) {
         self.init(frame: .zero)
         self.delegate = self
+        self.animationType = withType
         
         //ImageView
         let imageView:CustomImageView = CustomImageView.loadUINibView()
@@ -22,12 +23,12 @@ class CustomActionSheet : NXMActionSheet, NXMActionSheetDelegate {
         
         //TwoButton
         let twoButton:CustomTwoButtonView = CustomTwoButtonView.loadUINibView()
-        twoButton.setLeftButton(withTitle: "Add") { [weak self] button in
-            guard let strongSelf = self else { return }
+        twoButton.setLeftButton(withTitle: "Add") { /*[weak self]*/ button in
+            //guard let strongSelf = self else { return }
             
         }
-        twoButton.setRightButton(withTitle: "Remove") { [weak self] button in
-            guard let strongSelf = self else { return }
+        twoButton.setRightButton(withTitle: "Remove") { /*[weak self]*/ button in
+            //guard let strongSelf = self else { return }
             
         }
         let twoButtonData = NXMActionSheetData(.CUSTOM(twoButton))
@@ -36,7 +37,7 @@ class CustomActionSheet : NXMActionSheet, NXMActionSheetDelegate {
         let oneButton:CustomTwoButtonView = CustomTwoButtonView.loadUINibView()
         oneButton.setLeftButton(withTitle: "Close") { [weak self] button in
             guard let strongSelf = self else { return }
-            
+            strongSelf.close()
         }
         let oneButtonData = NXMActionSheetData(.CUSTOM(oneButton), withTouchClose:true)
         
