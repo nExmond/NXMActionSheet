@@ -48,6 +48,7 @@ open class NXMActionSheet : UIView, UITableViewDataSource, UITableViewDelegate {
     
     private var itemList:Array<NXMActionSheetData> = Array() {
         willSet(newData) {
+            let initial = (self.itemList.count == 0)
             self.itemList = newData
             
             let maxHeight = UIScreen.main.bounds.size.height - UIApplication.shared.statusBarFrame.height
@@ -59,17 +60,23 @@ open class NXMActionSheet : UIView, UITableViewDataSource, UITableViewDelegate {
             self.actionSheetTableView.isScrollEnabled = (contentHeight > maxHeight)
             let alpha:CGFloat = newData.count > 0 ? 1.0 : 0.0
             
-            if animationType == .SLIDE {
-                self.alpha = 1.0
-                UIView.animate(withDuration: 0.3, animations: {
+            if initial {
+                if animationType == .SLIDE {
+                    self.alpha = 1.0
+                    UIView.animate(withDuration: 0.3, animations: {
+                        self.backgroundView.alpha = alpha
+                        self.layoutIfNeeded()
+                    })
+                }else{
                     self.backgroundView.alpha = alpha
                     self.layoutIfNeeded()
-                })
+                    UIView.animate(withDuration: 0.3, animations: {
+                        self.alpha = alpha
+                    })
+                }
             }else{
-                self.backgroundView.alpha = alpha
-                self.layoutIfNeeded()
                 UIView.animate(withDuration: 0.3, animations: {
-                    self.alpha = alpha
+                    self.layoutIfNeeded()
                 })
             }
         }
@@ -211,7 +218,34 @@ open class NXMActionSheet : UIView, UITableViewDataSource, UITableViewDelegate {
         return self
     }
     
-    public func end(_ data:NXMActionSheetData?){
+    public func add(datas:[NXMActionSheetData]) -> NXMActionSheet {
+        items.append(contentsOf: datas)
+        return self
+    }
+    
+    public func insert(_ data:NXMActionSheetData, at:Int) -> NXMActionSheet {
+        items.insert(data, at: at)
+        return self
+    }
+    
+    public func insert(datas:[NXMActionSheetData], at:Int) -> NXMActionSheet {
+        items.insert(contentsOf: datas, at: at)
+        return self
+    }
+    
+    public func remove(data:NXMActionSheetData) -> Int {
+        if let idx = items.index(of: data) {
+            remove(at: idx)
+            return idx
+        }
+        return -1
+    }
+    
+    public func remove(at:Int) {
+        items.remove(at: at)
+    }
+    
+    public func end(_ data:NXMActionSheetData?=nil){
         if data != nil {
             items.append(data!)
         }
@@ -241,6 +275,8 @@ open class NXMActionSheet : UIView, UITableViewDataSource, UITableViewDelegate {
         
         itemList = items
         
+        var updateIdx:Int?
+        
         CATransaction.begin()
         CATransaction.setCompletionBlock { [weak self] in
             guard let strongSelf = self else { return }
@@ -253,10 +289,13 @@ open class NXMActionSheet : UIView, UITableViewDataSource, UITableViewDelegate {
             
             switch state! {
             case .INSERT(let inserts):
+                updateIdx = inserts.first
                 self.actionSheetTableView.insertRows(at: inserts.map{IndexPath(row: $0, section: 0)}, with: .fade)
             case .RELOAD(let reloads):
+                updateIdx = reloads.first
                 self.actionSheetTableView.reloadRows(at: reloads.map{IndexPath(row: $0, section: 0)}, with: .fade)
             case .DELETE(let deletes):
+                updateIdx = deletes.first
                 self.actionSheetTableView.deleteRows(at: deletes.map{IndexPath(row: $0, section: 0)}, with: .fade)
             }
             
@@ -268,20 +307,22 @@ open class NXMActionSheet : UIView, UITableViewDataSource, UITableViewDelegate {
         
         if scrollTo != .NONE {
             
-            let maxHeight = UIScreen.main.bounds.size.height - UIApplication.shared.statusBarFrame.height
-            
-            var y:CGFloat = 0.0
-            
-            if scrollTo == .TOP {
-            }else if scrollTo == .MIDDLE {
-                y = (getContentHeight() - maxHeight)*0.5
-            }else if scrollTo == .BOTTOM {
-                y = getContentHeight() - maxHeight
+            if let idx = updateIdx {
+                
+                var indexPath = IndexPath(row: 0, section: 0)
+                var position:UITableViewScrollPosition = .top
+                
+                if scrollTo == .TOP {
+                }else if scrollTo == .MIDDLE {
+                    position = .middle
+                    indexPath.row = idx
+                }else if scrollTo == .BOTTOM {
+                    position = .bottom
+                    indexPath.row = itemList.count-1
+                }
+                
+                self.actionSheetTableView.scrollToRow(at: indexPath, at: position, animated: true)
             }
-            
-            UIView.animate(withDuration: 0.3, animations: {
-                self.actionSheetTableView.contentOffset = CGPoint(x: 0, y: max(y,0))
-            })
         }
     }
     

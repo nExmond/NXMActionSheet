@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'NXMActionSheet'
-  s.version          = '0.1.4'
+  s.version          = '0.1.5'
   s.summary          = 'Easy to use Custom ActionSheet.'
 
 # This description is used to generate tags and improve search results.
@@ -22,7 +22,7 @@ TODO: Add long description of the pod here.
                        DESC
 
   s.homepage         = 'https://github.com/nExmond/NXMActionSheet'
-  # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
+  s.screenshots      = 'https://github.com/nExmond/NXMActionSheet/blob/master/Images/demo.gif'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'nExmond' => 'rnpfr254@naver.com' }
   s.source           = { :git => 'https://github.com/nExmond/NXMActionSheet.git', :tag => s.version.to_s }

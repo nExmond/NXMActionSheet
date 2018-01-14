@@ -17,12 +17,43 @@ class CustomTwoButtonView : UIView {
     private var leftAction:NXMControlAction?
     private var rightAction:NXMControlAction?
     
+    var leftButtonBackgroundColor: UIColor? {
+        set {
+            leftButton.backgroundColor = newValue
+            if newValue != nil {
+                leftButton.setTitleColor(.white, for: .normal)
+            }
+        }
+        get {
+            return leftButton.backgroundColor
+        }
+    }
+    
+    var rightButtonBackgroundColor: UIColor? {
+        set {
+            rightButton.backgroundColor = newValue
+            if newValue != nil {
+                rightButton.setTitleColor(.white, for: .normal)
+            }
+        }
+        get {
+            return rightButton.backgroundColor
+        }
+    }
+    
     func setLeftButton(withTitle:String, _ action:NXMControlAction? = nil) {
         setButtonCore(button: leftButton, withTitle: withTitle, action)
     }
     
     func setRightButton(withTitle:String, _ action:NXMControlAction? = nil) {
         setButtonCore(isLeft: false, button: rightButton, withTitle: withTitle, action)
+    }
+    
+    func visibleRightButton(visible:Bool) {
+        UIView.animate(withDuration: 0.3) {
+            self.rightButton.isHidden = !visible
+            self.layoutIfNeeded()
+        }
     }
     
     private func setButtonCore(isLeft:Bool=true, button:UIButton, withTitle:String, _ action:NXMControlAction? = nil) {

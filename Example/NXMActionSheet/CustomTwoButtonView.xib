@@ -12,21 +12,21 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="CustomTwoButtonView" customModule="NXMActionSheet_Example" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+            <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="UCy-CO-3oH">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="UCy-CO-3oH">
+                    <rect key="frame" x="0.0" y="2" width="375" height="62"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sp9-v3-weW">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="62"/>
                             <color key="backgroundColor" red="0.0" green="0.58823529409999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <state key="normal" title="Left">
                                 <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                         </button>
                         <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xoI-kY-dzg">
-                            <rect key="frame" x="0.0" y="0.0" width="0.0" height="50"/>
+                            <rect key="frame" x="0.0" y="0.0" width="0.0" height="62"/>
                             <color key="backgroundColor" red="0.97254901959999995" green="0.23137254900000001" blue="0.28235294119999998" alpha="1" colorSpace="calibratedRGB"/>
                             <state key="normal" title="Right">
                                 <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -37,7 +37,7 @@
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="UCy-CO-3oH" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="aZ5-Bx-g4s"/>
+                <constraint firstItem="UCy-CO-3oH" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="2" id="aZ5-Bx-g4s"/>
                 <constraint firstAttribute="bottom" secondItem="UCy-CO-3oH" secondAttribute="bottom" id="eHU-sC-xiN"/>
                 <constraint firstAttribute="trailing" secondItem="UCy-CO-3oH" secondAttribute="trailing" id="opL-yz-4bU"/>
                 <constraint firstItem="UCy-CO-3oH" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="sbV-ht-Wqa"/>

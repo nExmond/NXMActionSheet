@@ -16,12 +16,12 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9KR-CI-miT">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="300"/>
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="298"/>
                 </imageView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="9KR-CI-miT" secondAttribute="bottom" id="7OX-F8-Bnc"/>
+                <constraint firstAttribute="bottom" secondItem="9KR-CI-miT" secondAttribute="bottom" constant="2" id="7OX-F8-Bnc"/>
                 <constraint firstItem="9KR-CI-miT" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="NXM-wE-0Vs"/>
                 <constraint firstItem="9KR-CI-miT" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="ZDB-ho-U1w"/>
                 <constraint firstAttribute="trailing" secondItem="9KR-CI-miT" secondAttribute="trailing" id="eNb-cr-e3G"/>

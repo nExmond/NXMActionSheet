@@ -9,7 +9,7 @@
 import UIKit
 import NXMActionSheet
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, NXMActionSheetDelegate {
 
     @IBOutlet var presetsSegment: UISegmentedControl!
     @IBOutlet var animationTypeSegment: UISegmentedControl!
@@ -47,7 +47,7 @@ class ViewController: UIViewController {
     
     func defaultShow(type:NXMActionSheetAnimationType) {
         
-        NXMActionSheet(withType: type)
+        NXMActionSheet(delegate: self, withType: type)
             .add(NXMActionSheetData(.IMAGE(#imageLiteral(resourceName: "image"))))
             .add(NXMActionSheetData(.ACTIVITY_INDICATOR(.gray)))
             .add(NXMActionSheetData(.SLIDER(0.5, nil)))
@@ -73,6 +73,35 @@ class ViewController: UIViewController {
             }), withTouchClose: true))
         .add(NXMActionSheetData(.CUSTOM(datePicker)))
         .show()
+    }
+    
+    
+    func didSelectActionItem(_ actionSheet:NXMActionSheet, withData:NXMActionSheetData) {
+        print("defaultShow didSelectActionItem")
+    }
+    
+    func actionSheetWillShow() {
+        print("defaultShow actionSheetWillShow")
+    }
+    
+    func actionSheetDidShow() {
+        print("defaultShow actionSheetDidShow")
+    }
+    
+    func actionSheetWillHide() {
+        print("defaultShow actionSheetWillHide")
+    }
+    
+    func actionSheetDidHide() {
+        print("defaultShow actionSheetDidHide")
+    }
+    
+    func actionSheetWillUpdate() {
+        print("defaultShow actionSheetWillUpdate")
+    }
+    
+    func actionSheetDidUpdate() {
+        print("defaultShow actionSheetDidUpdate")
     }
 }
 
