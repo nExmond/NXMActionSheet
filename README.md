@@ -6,7 +6,9 @@
 [![Platform](https://img.shields.io/cocoapods/p/NXMActionSheet.svg?style=flat)](http://cocoapods.org/pods/NXMActionSheet)
 [![Language](https://img.shields.io/badge/swift-4.0-orange.svg?style=flat)](https://developer.apple.com/swift/)
 
+## Preview
 
+![demo](https://github.com/nExmond/NXMActionSheet/blob/master/Images/demo.gif)
 
 ## Requirements
 
