@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'NXMActionSheet'
-  s.version          = '0.1.5'
+  s.version          = '0.1.6'
   s.summary          = 'Easy to use Custom ActionSheet.'
 
 # This description is used to generate tags and improve search results.
@@ -32,7 +32,7 @@ TODO: Add long description of the pod here.
 
   s.source_files = 'NXMActionSheet/Classes/*'
 
-  s.resources = 'NXMActionSheet/Classes/*.xib'
+  # s.resources = 'NXMActionSheet/Classes/*.xib'
   # s.resource_bundles = {
   #  'NXMActionSheet' => [
   #      'Pod/**/*.xib'
@@ -40,6 +40,6 @@ TODO: Add long description of the pod here.
   # }
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
+  s.frameworks = 'UIKit'
   # s.dependency 'AFNetworking', '~> 2.3'
 end
