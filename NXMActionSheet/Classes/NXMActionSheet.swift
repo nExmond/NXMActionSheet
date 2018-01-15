@@ -36,10 +36,10 @@ open class NXMActionSheet : UIView, UITableViewDataSource, UITableViewDelegate {
     public var delegate:NXMActionSheetDelegate?
     let reuseIdentifier = "NXMActionSheetItemCell"
     
-    @IBOutlet var backgroundView: UIView!
-    @IBOutlet var actionSheetTableView: UITableView!
-    @IBOutlet var actionSheetHeight: NSLayoutConstraint!
-    @IBOutlet var actionSheetBottom: NSLayoutConstraint!
+    @IBOutlet public var backgroundView: UIView!
+    @IBOutlet public var actionSheetTableView: UITableView!
+    @IBOutlet public var actionSheetHeight: NSLayoutConstraint!
+    @IBOutlet public var actionSheetBottom: NSLayoutConstraint!
     
     open var items:Array<NXMActionSheetData> = Array()
     
@@ -255,7 +255,7 @@ open class NXMActionSheet : UIView, UITableViewDataSource, UITableViewDelegate {
     
     //MARK: - Show / Update / Close -
 
-    public func show(scrollTo:NXMActionSheetScrollTo = .NONE, inViewController:UIViewController? = nil) {
+    open func show(scrollTo:NXMActionSheetScrollTo = .NONE, inViewController:UIViewController? = nil) {
         
         delegate?.actionSheetWillShow?()
         let topNavigationController = UIViewController.topViewController(controller: inViewController)
@@ -269,7 +269,7 @@ open class NXMActionSheet : UIView, UITableViewDataSource, UITableViewDelegate {
         }
     }
     
-    public func update(_ state:NXMActionSheetItemUpdate? = nil, scrollTo:NXMActionSheetScrollTo = .NONE, complete:NXMActionSheetCompletion? = nil) {
+    open func update(_ state:NXMActionSheetItemUpdate? = nil, scrollTo:NXMActionSheetScrollTo = .NONE, complete:NXMActionSheetCompletion? = nil) {
         
         delegate?.actionSheetWillUpdate?()
         
@@ -326,7 +326,7 @@ open class NXMActionSheet : UIView, UITableViewDataSource, UITableViewDelegate {
         }
     }
     
-    public func close() {
+    open func close() {
         
         delegate?.actionSheetWillHide?()
         
@@ -380,7 +380,7 @@ open class NXMActionSheet : UIView, UITableViewDataSource, UITableViewDelegate {
 
 extension UIViewController {
     
-    class func topViewController(controller: UIViewController?) -> UIViewController? {
+    fileprivate class func topViewController(controller: UIViewController?) -> UIViewController? {
         var viewController = controller
         if viewController == nil {
             viewController = UIApplication.shared.keyWindow?.rootViewController

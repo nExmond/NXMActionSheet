@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import Swift
 
 class NXMActionSheetItemCell : UITableViewCell {
     

@@ -26,15 +26,15 @@ open class NXMActionSheetData: NSObject {
     private var _classType: AnyObject.Type = NSObject.self
     private var _usingMargin: Bool = true
     private var _action: NXMControlAction?
-    var tag : String?
-    var subData : Any?
+    open var tag : String?
+    open var subData : Any?
     open var touchClose:Bool = false
-    var selectionColor:UIColor = .clear
-    var currentIdx:Int?
-    var horizontalMargin:CGFloat = 16.0
-    var verticalMargin:CGFloat = 8.0
+    open var selectionColor:UIColor = .clear
+    open var currentIdx:Int?
+    open var horizontalMargin:CGFloat = 16.0
+    open var verticalMargin:CGFloat = 8.0
     
-    var usingMargin:Bool {
+    open var usingMargin:Bool {
         set{
             _usingMargin = newValue
             if newValue==false {
@@ -47,7 +47,7 @@ open class NXMActionSheetData: NSObject {
         }
     }
     
-    var usedCustomView:Bool {
+    open var usedCustomView:Bool {
         set{
             usingMargin = !newValue
         }
@@ -56,19 +56,19 @@ open class NXMActionSheetData: NSObject {
         }
     }
     
-    var view : UIView? {
+    open var view : UIView? {
         get {
             return self._view
         }
     }
     
-    var height : CGFloat {
+    open var height : CGFloat {
         get {
             return self._height
         }
     }
 
-    var classType: AnyClass {
+    open var classType: AnyClass {
         get{
             return self._classType
         }
