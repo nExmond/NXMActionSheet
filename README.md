@@ -43,7 +43,7 @@ Default views make it easy to show
 
 ```swift
 NXMActionSheet()
-            .add(NXMActionSheetData(.IMAGE(#imageLiteral(resourceName: "image"))))
+            .add(NXMActionSheetData(.IMAGE(/*image*/))))
             .add(NXMActionSheetData(.ACTIVITY_INDICATOR(.gray)))
             .add(NXMActionSheetData(.SLIDER(0.5, nil)))
             .add(NXMActionSheetData(.LABEL("Label")))
