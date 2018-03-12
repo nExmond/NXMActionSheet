@@ -108,7 +108,7 @@ open class NXMActionSheetData: NSObject {
             _action = action
             button.addTarget(self, action: #selector(controlAction(_:)), for: .touchUpInside)
             button.backgroundColor = color ?? .white
-            button.setTitleColor((color==nil ? .black : .white), for: .normal)
+            button.setTitleColor(((color == nil||color == .white) ? .black : .white), for: .normal)
             button.setTitle(title, for: .normal)
             setView = button
             usingMargin = false

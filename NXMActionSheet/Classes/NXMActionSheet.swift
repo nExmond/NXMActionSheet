@@ -33,7 +33,7 @@ public enum NXMActionSheetScrollTo {
 
 open class NXMActionSheet : UIView, UITableViewDataSource, UITableViewDelegate {
     
-    public var delegate:NXMActionSheetDelegate?
+    public weak var delegate:NXMActionSheetDelegate?
     let reuseIdentifier = "NXMActionSheetItemCell"
     
     @IBOutlet public var backgroundView: UIView!
