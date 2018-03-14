@@ -27,7 +27,7 @@ open class NXMActionSheetData: NSObject {
     private var _usingMargin: Bool = true
     private var _action: NXMControlAction?
     open var tag : String?
-    open weak var subData : AnyObject?
+    open var subData : Any?
     open var touchClose:Bool = false
     open var selectionColor:UIColor = .clear
     open var currentIdx:Int?
