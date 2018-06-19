@@ -41,14 +41,15 @@ open class NXMActionSheet : UIView, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet public var actionSheetHeight: NSLayoutConstraint!
     @IBOutlet public var actionSheetBottom: NSLayoutConstraint!
     
-    open var items:Array<NXMActionSheetData> = Array()
+    open var items = [NXMActionSheetData]()
     
     var tableviewHeight:CGFloat = 0.0
     var view:UIView!
     
-    private var itemList:Array<NXMActionSheetData> = Array() {
+    private var itemList = [NXMActionSheetData]() {
         willSet(newData) {
             let initial = (self.itemList.count == 0)
+            
             self.itemList = newData
             
             let maxHeight = UIScreen.main.bounds.size.height - UIApplication.shared.statusBarFrame.height
@@ -213,27 +214,31 @@ open class NXMActionSheet : UIView, UITableViewDataSource, UITableViewDelegate {
     
     //MARK: - Items Add or AddingEnd -
         
-    public func add(_ data:NXMActionSheetData) -> NXMActionSheet {
+    @discardableResult public func add(_ data:NXMActionSheetData) -> NXMActionSheet {
         items.append(data)
         return self
     }
-    
-    public func add(datas:[NXMActionSheetData]) -> NXMActionSheet {
+    @discardableResult public func add(datas:[NXMActionSheetData]) -> NXMActionSheet {
         items.append(contentsOf: datas)
         return self
     }
+    @discardableResult public func add(datas:NXMActionSheetData...) -> NXMActionSheet {
+        return add(datas: datas)
+    }
     
-    public func insert(_ data:NXMActionSheetData, at:Int) -> NXMActionSheet {
+    @discardableResult public func insert(_ data:NXMActionSheetData, at:Int) -> NXMActionSheet {
         items.insert(data, at: at)
         return self
     }
-    
-    public func insert(datas:[NXMActionSheetData], at:Int) -> NXMActionSheet {
+    @discardableResult public func insert(datas:[NXMActionSheetData], at:Int) -> NXMActionSheet {
         items.insert(contentsOf: datas, at: at)
         return self
     }
+    @discardableResult public func insert(datas:NXMActionSheetData..., at:Int) -> NXMActionSheet {
+        return insert(datas: datas, at: at)
+    }
     
-    public func remove(data:NXMActionSheetData) -> Int {
+    @discardableResult public func remove(data:NXMActionSheetData) -> Int {
         if let idx = items.index(of: data) {
             remove(at: idx)
             return idx
@@ -244,13 +249,6 @@ open class NXMActionSheet : UIView, UITableViewDataSource, UITableViewDelegate {
     public func remove(at:Int) {
         items.remove(at: at)
     }
-    
-    public func end(_ data:NXMActionSheetData?=nil){
-        if data != nil {
-            items.append(data!)
-        }
-    }
-    
     
     
     //MARK: - Show / Update / Close -
@@ -272,6 +270,21 @@ open class NXMActionSheet : UIView, UITableViewDataSource, UITableViewDelegate {
     open func update(_ state:NXMActionSheetItemUpdate? = nil, scrollTo:NXMActionSheetScrollTo = .NONE, complete:NXMActionSheetCompletion? = nil) {
         
         delegate?.actionSheetWillUpdate?()
+        
+        var items = [NXMActionSheetData]()
+        items.append(contentsOf: self.items)
+        
+        // iPhoneX correct bottom
+        if UIDevice.isiPhoneX {
+            let bottomGapView:UIView = {
+                let view = UIView()
+                view.bounds.size.height = UIWindow.bottomPadding
+                view.backgroundColor = .clear
+                return view
+            }()
+            let bottomGapData = NXMActionSheetData(.CUSTOM(bottomGapView))
+            items.append(bottomGapData)
+        }
         
         itemList = items
         
@@ -378,6 +391,32 @@ open class NXMActionSheet : UIView, UITableViewDataSource, UITableViewDelegate {
 
 //MARK: - Extensions -
 
+extension UIDevice {
+    
+    static var isiPhoneX:Bool {
+        
+        var identifire:String!
+        if isSmulator {
+            identifire = ProcessInfo.processInfo.environment["SIMULATOR_MODEL_IDENTIFIER"] ?? ""
+        }else{
+            identifire = {
+                var size:Int = 0
+                sysctlbyname("hw.machine", nil, &size, nil, 0)
+                var machine = [CChar](repeating: 0, count: size)
+                sysctlbyname("hw.machine", &machine, &size, nil, 0)
+                
+                return String(cString: machine, encoding:String.Encoding.utf8)!
+            }()
+        }
+        return (identifire == "iPhone10,3"
+            || identifire == "iPhone10,6")
+    }
+    
+    static var isSmulator:Bool {
+        return TARGET_OS_SIMULATOR != 0
+    }
+}
+
 extension UIViewController {
     
     fileprivate class func topViewController(controller: UIViewController?) -> UIViewController? {
@@ -432,6 +471,17 @@ extension UIView {
             backgroundView.layer.shadowOpacity = withAlpha
             backgroundView.layer.shadowPath = shadowPath.cgPath
             backgroundView.layoutIfNeeded()
+        }
+    }
+}
+
+extension UIWindow {
+    
+    public class var bottomPadding : CGFloat {
+        if #available(iOS 11.0, *) {
+            return UIApplication.shared.keyWindow?.safeAreaInsets.bottom ?? 0.0
+        } else {
+            return 0.0
         }
     }
 }

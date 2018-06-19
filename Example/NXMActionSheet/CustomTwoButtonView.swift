@@ -49,10 +49,19 @@ class CustomTwoButtonView : UIView {
         setButtonCore(isLeft: false, button: rightButton, withTitle: withTitle, action)
     }
     
-    func visibleRightButton(visible:Bool) {
-        UIView.animate(withDuration: 0.3) {
-            self.rightButton.isHidden = !visible
+    func visibleButton(left:Bool=false, right:Bool=false, animate:Bool=true) {
+        guard left || right else { return }
+        
+        func action() {
+            self.leftButton.isHidden = !left
+            self.rightButton.isHidden = !right
             self.layoutIfNeeded()
+        }
+        
+        if animate {
+            UIView.animate(withDuration: 0.3, animations: action)
+        }else{
+            action()
         }
     }
     

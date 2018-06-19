@@ -20,7 +20,7 @@ class CustomActionSheet : NXMActionSheet, NXMActionSheetDelegate {
         self.delegate = self
         self.animationType = withType
         
-        numberList.append(1)
+        numberList.append(0)
         
         //ImageView
         let imageView:CustomImageView = CustomImageView.loadUINibView()
@@ -49,6 +49,7 @@ class CustomActionSheet : NXMActionSheet, NXMActionSheetDelegate {
             strongSelf.removeLabel()
         }
         let twoButtonData = NXMActionSheetData(.CUSTOM(twoButton))
+        twoButton.visibleButton(left: true)
         
         //OneButton
         let oneButton:CustomTwoButtonView = CustomTwoButtonView.loadUINibView()
@@ -61,9 +62,8 @@ class CustomActionSheet : NXMActionSheet, NXMActionSheetDelegate {
         
         //add items
         add(imageViewData)
-        .add(datas: labelViewDataList)
-        .add(twoButtonData)
-        .end(oneButtonData)
+            .add(datas: labelViewDataList)
+            .add(datas: twoButtonData, oneButtonData)
     }
     
     override init(frame: CGRect) {
@@ -73,7 +73,6 @@ class CustomActionSheet : NXMActionSheet, NXMActionSheetDelegate {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
-    
     
     func addLabel() {
         
@@ -91,11 +90,13 @@ class CustomActionSheet : NXMActionSheet, NXMActionSheetDelegate {
         
         labelViewDataList.append(labelViewData)
         
-        insert(labelViewData, at: insertIdx).end()
+        insert(labelViewData, at: insertIdx)
         update(.INSERT([insertIdx]), scrollTo: .BOTTOM)
         
-        if numberList.count > 1 {
-            twoButton.visibleRightButton(visible: true)
+        if numberList.count > 2 {
+            twoButton.visibleButton(right: true)
+        }else if numberList.count > 1 {
+            twoButton.visibleButton(left: true, right: true)
         }
     }
     
@@ -109,7 +110,9 @@ class CustomActionSheet : NXMActionSheet, NXMActionSheetDelegate {
         }
         
         if numberList.count == 1 {
-            twoButton.visibleRightButton(visible: false)
+            twoButton.visibleButton(left: true)
+        }else{
+            twoButton.visibleButton(left: true, right: true)
         }
     }
     
