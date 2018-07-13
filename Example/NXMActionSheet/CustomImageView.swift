@@ -10,5 +10,5 @@ import UIKit
 
 class CustomImageView : UIView {
     
-    @IBOutlet var ImageView: UIImageView!
+    @IBOutlet var imageView: UIImageView!
 }

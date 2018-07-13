@@ -36,18 +36,17 @@ Chaining
 add(imageViewData)
 .add(datas: labelViewDataList)
 .insert(twoButtonData, at: 0)
-.end(oneButtonData)
 
 ```
 Default views make it easy to show
 
 ```swift
 NXMActionSheet()
-            .add(NXMActionSheetData(.IMAGE(/*image*/))))
-            .add(NXMActionSheetData(.ACTIVITY_INDICATOR(.gray)))
-            .add(NXMActionSheetData(.SLIDER(0.5, nil)))
-            .add(NXMActionSheetData(.LABEL("Label")))
-            .add(NXMActionSheetData(.BUTTON("Button", UIColor.brown, nil), withTouchClose: true))
+            .add(.init(.image(/*image*/))))
+            .add(.init(.activityIndicator(.gray)))
+            .add(.init(.slider(0.5, nil)))
+            .add(.init(.label("Label")))
+            .add(.init(.button("Button", UIColor.brown, nil), withTouchClose: true))
             .show()
 ```
 
@@ -57,7 +56,7 @@ When using inheritance, be sure to include the following functions
 ```swift
 class CustomActionSheet : NXMActionSheet {
     
-    convenience init (withType:NXMActionSheetAnimationType = .SLIDE) {
+    convenience init (withType:NXMActionSheetAnimationType = .slide) {
         self.init(frame: .zero)
     }
     
@@ -74,9 +73,9 @@ class CustomActionSheet : NXMActionSheet {
 Create .xib and .swift with the same name and use it as follows
 ```swift
 //ImageView
-let imageView:CustomImageView = CustomImageView.loadUINibView()
-imageView.ImageView.image = /*image*/
-let imageViewData = NXMActionSheetData(.CUSTOM(imageView))
+let customImageView = CustomImageView.loadView()
+customImageView.imageView.image = /*image*/
+let imageViewData = NXMActionSheetData(.custom(imageView))
 ...
 add(imageViewData)
 ```

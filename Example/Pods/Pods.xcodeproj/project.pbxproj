@@ -13,6 +13,8 @@
 		87BB07D46C20A8518B0DDEC549C23D49 /* Pods-NXMActionSheet_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 09F988AF59DCBADF03A574CBE7194FEF /* Pods-NXMActionSheet_Example-dummy.m */; };
 		98FEFE816DB68A5DBE523CBFB8A41894 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
 		C55DF999910FE56EF5817F3F9CA11386 /* NXMActionSheet-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = DE9E3D4AED8CFB63430E420F455EC1B3 /* NXMActionSheet-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EDA9410E20F8BFAB00770FB7 /* NXMActionSheetExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDA9410D20F8BFAB00770FB7 /* NXMActionSheetExt.swift */; };
+		EDA9410F20F8BFAB00770FB7 /* NXMActionSheetExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDA9410D20F8BFAB00770FB7 /* NXMActionSheetExt.swift */; };
 		EDEC6CB92007945E002819C8 /* NXMActionSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDEC6CB52007945E002819C8 /* NXMActionSheet.swift */; };
 		EDEC6CBA2007945E002819C8 /* NXMActionSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDEC6CB52007945E002819C8 /* NXMActionSheet.swift */; };
 		EDEC6CBC2007945E002819C8 /* NXMActionSheetItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDEC6CB72007945E002819C8 /* NXMActionSheetItemCell.swift */; };
@@ -54,6 +56,7 @@
 		C95262590A337B05F0E99E5BF5259B91 /* Pods-NXMActionSheet_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-NXMActionSheet_Example-resources.sh"; sourceTree = "<group>"; };
 		DE9E3D4AED8CFB63430E420F455EC1B3 /* NXMActionSheet-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NXMActionSheet-umbrella.h"; sourceTree = "<group>"; };
 		DF377E7D671FF936E96AB51CE024374E /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EDA9410D20F8BFAB00770FB7 /* NXMActionSheetExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NXMActionSheetExt.swift; sourceTree = "<group>"; };
 		EDEC6CB52007945E002819C8 /* NXMActionSheet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NXMActionSheet.swift; sourceTree = "<group>"; };
 		EDEC6CB72007945E002819C8 /* NXMActionSheetItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NXMActionSheetItemCell.swift; sourceTree = "<group>"; };
 		EDEC6CB82007945E002819C8 /* NXMActionSheetData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NXMActionSheetData.swift; sourceTree = "<group>"; };
@@ -181,6 +184,7 @@
 				EDEC6CFB200906FC002819C8 /* NXMActionSheet.xib */,
 				EDEC6CB82007945E002819C8 /* NXMActionSheetData.swift */,
 				EDEC6CB72007945E002819C8 /* NXMActionSheetItemCell.swift */,
+				EDA9410D20F8BFAB00770FB7 /* NXMActionSheetExt.swift */,
 			);
 			name = Classes;
 			path = NXMActionSheet/Classes;
@@ -284,6 +288,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EDEC6CFD20090776002819C8 /* NXMActionSheet.xib in Sources */,
+				EDA9410F20F8BFAB00770FB7 /* NXMActionSheetExt.swift in Sources */,
 				87BB07D46C20A8518B0DDEC549C23D49 /* Pods-NXMActionSheet_Example-dummy.m in Sources */,
 				EDEC6CBD2007945E002819C8 /* NXMActionSheetItemCell.swift in Sources */,
 				EDEC6CBA2007945E002819C8 /* NXMActionSheet.swift in Sources */,
@@ -296,6 +301,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EDEC6CFC20090771002819C8 /* NXMActionSheet.xib in Sources */,
+				EDA9410E20F8BFAB00770FB7 /* NXMActionSheetExt.swift in Sources */,
 				07619F85B7CBB9FBAF4AF3CDCAF214A7 /* NXMActionSheet-dummy.m in Sources */,
 				EDEC6CBC2007945E002819C8 /* NXMActionSheetItemCell.swift in Sources */,
 				EDEC6CB92007945E002819C8 /* NXMActionSheet.swift in Sources */,

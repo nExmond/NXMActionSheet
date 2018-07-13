@@ -53,9 +53,9 @@ class CustomTwoButtonView : UIView {
         guard left || right else { return }
         
         func action() {
-            self.leftButton.isHidden = !left
-            self.rightButton.isHidden = !right
-            self.layoutIfNeeded()
+            leftButton.isHidden = !left
+            rightButton.isHidden = !right
+            layoutIfNeeded()
         }
         
         if animate {

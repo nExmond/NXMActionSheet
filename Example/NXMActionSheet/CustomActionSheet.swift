@@ -15,50 +15,47 @@ class CustomActionSheet : NXMActionSheet, NXMActionSheetDelegate {
     private var labelViewDataList = [NXMActionSheetData]()
     private var twoButton:CustomTwoButtonView!
     
-    convenience init (withType:NXMActionSheetAnimationType = .SLIDE) {
+    convenience init (withType:NXMActionSheetAnimationType = .slide) {
         self.init(frame: .zero)
-        self.delegate = self
-        self.animationType = withType
+        
+        delegate = self
+        animationType = withType
         
         numberList.append(0)
         
         //ImageView
-        let imageView:CustomImageView = CustomImageView.loadUINibView()
-        imageView.ImageView.image = #imageLiteral(resourceName: "image")
-        let imageViewData = NXMActionSheetData(.CUSTOM(imageView))
+        let imageView = CustomImageView.loadView()
+        imageView.imageView.image = #imageLiteral(resourceName: "image")
+        let imageViewData = NXMActionSheetData(.custom(imageView))
         
         //LabelView
         for number in numberList {
             
             let strNumber = number.description
-            let labelView:CustomLabelView = CustomLabelView.loadUINibView()
+            let labelView = CustomLabelView.loadView()
             let className = CustomLabelView.description().components(separatedBy:".").last ?? ""
             labelView.label.text = "\(className) \(strNumber)"
-            labelViewDataList.append(NXMActionSheetData(.CUSTOM(labelView), withTag:strNumber))
+            labelViewDataList.append(NXMActionSheetData(.custom(labelView), withTag:strNumber))
         }
         
         //TwoButton
-        twoButton = CustomTwoButtonView.loadUINibView() as! CustomTwoButtonView
+        twoButton = CustomTwoButtonView.loadView()
         twoButton.setLeftButton(withTitle: "Add LabelView") { [weak self] button in
-            guard let strongSelf = self else { return }
-            
-            strongSelf.addLabel()
+            self?.addLabel()
         }
         twoButton.setRightButton(withTitle: "Remove LabelView") { [weak self] button in
-            guard let strongSelf = self else { return }
-            strongSelf.removeLabel()
+            self?.removeLabel()
         }
-        let twoButtonData = NXMActionSheetData(.CUSTOM(twoButton))
+        let twoButtonData = NXMActionSheetData(.custom(twoButton))
         twoButton.visibleButton(left: true)
         
         //OneButton
-        let oneButton:CustomTwoButtonView = CustomTwoButtonView.loadUINibView()
+        let oneButton = CustomTwoButtonView.loadView()
         oneButton.leftButtonBackgroundColor = .darkGray
         oneButton.setLeftButton(withTitle: "Close") { [weak self] button in
-            guard let strongSelf = self else { return }
-            strongSelf.close()
+            self?.close()
         }
-        let oneButtonData = NXMActionSheetData(.CUSTOM(oneButton))
+        let oneButtonData = NXMActionSheetData(.custom(oneButton))
         
         //add items
         add(imageViewData)
@@ -81,17 +78,17 @@ class CustomActionSheet : NXMActionSheet, NXMActionSheetDelegate {
         
         numberList.append(number)
         
-        let labelView:CustomLabelView = CustomLabelView.loadUINibView()
+        let labelView:CustomLabelView = CustomLabelView.loadView()
         let className = CustomLabelView.description().components(separatedBy:".").last ?? ""
         labelView.label.text = "\(className) \(strNumber)"
-        let labelViewData = NXMActionSheetData(.CUSTOM(labelView), withTag:strNumber)
+        let labelViewData = NXMActionSheetData(.custom(labelView), withTag:strNumber)
         
         let insertIdx = getLastLableIdx() + 1
         
         labelViewDataList.append(labelViewData)
         
         insert(labelViewData, at: insertIdx)
-        update(.INSERT([insertIdx]), scrollTo: .BOTTOM)
+        update(.insert([insertIdx]), scrollTo: .bottom)
         
         if numberList.count > 2 {
             twoButton.visibleButton(right: true)
@@ -106,7 +103,7 @@ class CustomActionSheet : NXMActionSheet, NXMActionSheetDelegate {
             numberList.removeLast()
             
             let idx = remove(data:labelViewDataList.removeLast())
-            update(.DELETE([idx]), scrollTo: .BOTTOM)
+            update(.delete([idx]), scrollTo: .bottom)
         }
         
         if numberList.count == 1 {
@@ -118,69 +115,35 @@ class CustomActionSheet : NXMActionSheet, NXMActionSheetDelegate {
     
     func getLastLableIdx() -> Int {
         guard labelViewDataList.count > 0 else { return -1 }
-        return items.index(of: labelViewDataList.last!)!
+        return index(of: labelViewDataList.last!)!
     }
     
     
     func didSelectActionItem(_ actionSheet:NXMActionSheet, withData:NXMActionSheetData) {
-        print("CustomShow didSelectActionItem")
+        trace("custom", withData.typeDescription)
     }
     
     func actionSheetWillShow() {
-        print("CustomShow actionSheetWillShow")
+        trace("custom")
     }
     
     func actionSheetDidShow() {
-        print("CustomShow actionSheetDidShow")
+        trace("custom")
     }
     
     func actionSheetWillHide() {
-        print("CustomShow actionSheetWillHide")
+        trace("custom")
     }
     
     func actionSheetDidHide() {
-        print("CustomShow actionSheetDidHide")
+        trace("custom")
     }
     
     func actionSheetWillUpdate() {
-        print("CustomShow actionSheetWillUpdate")
+        trace("custom")
     }
     
     func actionSheetDidUpdate() {
-        print("CustomShow actionSheetDidUpdate")
+        trace("custom")
     }
 }
-
-
-/*
-extension CustomActionSheet : NXMActionSheetDelegate {
-    
-    func didSelectActionItem(_ actionSheet:NXMActionSheet, withData:NXMActionSheetData) {
-        print("CustomShow didSelectActionItem")
-    }
-    
-    func actionSheetWillShow() {
-        print("CustomShow actionSheetWillShow")
-    }
-    
-    func actionSheetDidShow() {
-        print("CustomShow actionSheetDidShow")
-    }
-    
-    func actionSheetWillHide() {
-        print("CustomShow actionSheetWillHide")
-    }
-    
-    func actionSheetDidHide() {
-        print("CustomShow actionSheetDidHide")
-    }
-    
-    func actionSheetWillUpdate() {
-        print("CustomShow actionSheetWillUpdate")
-    }
-    
-    func actionSheetDidUpdate() {
-        print("CustomShow actionSheetDidUpdate")
-    }
-}
-*/

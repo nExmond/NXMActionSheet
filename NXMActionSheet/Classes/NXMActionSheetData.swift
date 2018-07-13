@@ -10,44 +10,57 @@ import UIKit
 public typealias NXMControlAction = (_ sener:UIView) -> Void
 
 public enum NXMActionSheetItemType {
-    case CUSTOM(UIView?)
-    case LABEL(String?)
-    case BUTTON(String?,UIColor?,NXMControlAction?)
-    case IMAGE(UIImage?)
-    case TEXT_FIELD(String?,UITextFieldDelegate?)
-    case SLIDER(Float,NXMControlAction?)
-    case ACTIVITY_INDICATOR(UIActivityIndicatorViewStyle)
+    
+    case custom(UIView?)
+    case label(String?)
+    case button(String?,UIColor?,NXMControlAction?)
+    case image(UIImage?)
+    case textField(String?,UITextFieldDelegate?)
+    case slider(Float,NXMControlAction?)
+    case activityIndicator(UIActivityIndicatorViewStyle)
+    
+    var description: String {
+        switch self {
+        case .custom(let view): return "custom: \(view?.description ?? "nil")"
+        case .label(let text): return "label: \(text ?? "nil")"
+        case .button(let title, _, _): return "button: \(title ?? "nil")"
+        case .image(let image): return "image: \(image?.description ?? "nil")"
+        case .textField(let text, _): return "textField: \(text ?? "nil")"
+        case .slider(let value, _): return "slider: \(value)"
+        case .activityIndicator(let style): return "activityIndicator: \(style)"
+        }
+    }
 }
 
 open class NXMActionSheetData: NSObject {
     
-    private var _view: UIView?
-    private var _height: CGFloat = 50.0
-    private var _classType: AnyObject.Type = NSObject.self
-    private var _usingMargin: Bool = true
-    private var _action: NXMControlAction?
+    private(set) var type: NXMActionSheetItemType!
+    
+    private(set) var view: UIView!
+    private(set) var height: CGFloat = 50.0
+    
+    private(set) var close: (()->Void)?
+    
     open var tag : String?
     open var subData : Any?
-    open var touchClose:Bool = false
-    open var selectionColor:UIColor = .clear
-    open var currentIdx:Int?
-    open var horizontalMargin:CGFloat = 16.0
-    open var verticalMargin:CGFloat = 8.0
+    open var currentIdx: Int?
     
-    open var usingMargin:Bool {
-        set{
-            _usingMargin = newValue
-            if newValue==false {
+    open var touchClose: Bool = false
+    open var selectionColor: UIColor = .clear
+    
+    open var horizontalMargin: CGFloat = 16.0
+    open var verticalMargin: CGFloat = 8.0
+    
+    open var usingMargin: Bool = true {
+        didSet{
+            if !usingMargin {
                 horizontalMargin = 0.0
                 verticalMargin = 0.0
             }
         }
-        get{
-            return _usingMargin
-        }
     }
     
-    open var usedCustomView:Bool {
+    open var usedCustomView: Bool {
         set{
             usingMargin = !newValue
         }
@@ -56,30 +69,34 @@ open class NXMActionSheetData: NSObject {
         }
     }
     
-    open var view : UIView? {
-        get {
-            return self._view
-        }
+    open var typeDescription: String {
+        return type.description
     }
-    
-    open var height : CGFloat {
-        get {
-            return self._height
-        }
-    }
-
-    open var classType: AnyClass {
-        get{
-            return self._classType
-        }
-    }
-    
     
     public init(_ type:NXMActionSheetItemType, withTag:String? = nil, withTouchClose:Bool = false) {
-        
         super.init()
         
-        var setView:UIView!
+        self.type = type
+        
+        view = loadView(type)
+        height = view.bounds.size.height
+        
+        view.isUserInteractionEnabled = true
+        if view.backgroundColor == .white {
+            view.backgroundColor = .clear
+        }
+        
+        tag = withTag
+        touchClose = withTouchClose
+    }
+    
+    public func setClose(closure:@escaping ()->Void) {
+        guard touchClose else { return }
+        close = closure
+    }
+    
+    func loadView(_ type:NXMActionSheetItemType) -> UIView {
+        
         let defaultRect = CGRect(x: 0, y: 0, width:  UIScreen.main.bounds.width, height: 50)
         
         var rectWithoutMargin = defaultRect
@@ -87,78 +104,67 @@ open class NXMActionSheetData: NSObject {
         rectWithoutMargin.size.width -= horizontalMargin*2
         
         switch type {
-            
-        case .CUSTOM(let view):
-            if let v = view {
-                setView = v
+        case .custom(let view):
+            if let view = view {
                 usedCustomView = true
+                return view
             }else{
-                setView = UIView(frame: rectWithoutMargin)
-                setView.backgroundColor = UIColor.white
+                let view = UIView(frame: rectWithoutMargin)
+                view.backgroundColor = UIColor.white
+                return view
             }
-            
-        case .LABEL(let text):
+        case .label(let text):
             let label = UILabel(frame: rectWithoutMargin)
             label.textColor = .black
             label.text = text
-            setView = label
+            return label
             
-        case .BUTTON(let title, let color, let action):
+        case .button(let title, let color, let action):
             let button = UIButton(frame: defaultRect)
-            _action = action
-            button.addTarget(self, action: #selector(controlAction(_:)), for: .touchUpInside)
+            button.addTargetClosure(closure: { [weak self] control in
+                action?(control)
+                self?.close?()
+            })
             button.backgroundColor = color ?? .white
             button.setTitleColor(((color == nil||color == .white) ? .black : .white), for: .normal)
             button.setTitle(title, for: .normal)
-            setView = button
             usingMargin = false
             
-        case .IMAGE(let image):
+            return button
+            
+        case .image(let image):
             let imageView = UIImageView(frame: defaultRect)
             imageView.frame.size.height = imageView.frame.size.width*0.85
             imageView.contentMode = .scaleAspectFill
             imageView.image = image
-            setView = imageView
             usingMargin = false
             
-        case .TEXT_FIELD(let text, let delegate):
+            return imageView
+            
+        case .textField(let text, let delegate):
             let textField = UITextField(frame: rectWithoutMargin)
             textField.delegate = delegate
             textField.textColor = .black
             textField.text = text
-            setView = textField
             
-        case .SLIDER(let value, let action):
+            return textField
+            
+        case .slider(let value, let action):
             let slider = UISlider(frame: rectWithoutMargin)
-            _action = action
-            slider.addTarget(self, action: #selector(controlAction(_:)), for: .valueChanged)
+            slider.addTargetClosure(closure: { [weak self] control in
+                action?(control)
+                self?.close?()
+            })
             slider.value = value
-            setView = slider
             
-        case .ACTIVITY_INDICATOR(let style):
+            return slider
+            
+        case .activityIndicator(let style):
             let indicator = UIActivityIndicatorView(frame: rectWithoutMargin)
             indicator.activityIndicatorViewStyle = style
             indicator.startAnimating()
-            setView = indicator
             
+            return indicator
         }
-        setView.isUserInteractionEnabled = true
-        if setView.backgroundColor == .white {
-            setView.backgroundColor = .clear
-        }
-        
-        _view = setView
-        _height = setView.bounds.size.height
-        tag = withTag
-        
-        _classType = setView.classForCoder
-        
-        touchClose = withTouchClose
-        
     }
-    
-    @objc private func controlAction(_ sender: UIView) {
-        _action?(sender)
-    }
-    
 }

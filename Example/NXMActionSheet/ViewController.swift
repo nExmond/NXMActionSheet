@@ -9,8 +9,8 @@
 import UIKit
 import NXMActionSheet
 
-class ViewController: UIViewController, NXMActionSheetDelegate {
-
+class ViewController: UIViewController {
+    
     @IBOutlet var presetsSegment: UISegmentedControl!
     @IBOutlet var animationTypeSegment: UISegmentedControl!
     
@@ -18,7 +18,7 @@ class ViewController: UIViewController, NXMActionSheetDelegate {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -26,36 +26,28 @@ class ViewController: UIViewController, NXMActionSheetDelegate {
     
     @IBAction func show(_ sender: UIButton) {
         
-        let preset = presetsSegment.selectedSegmentIndex
-        var aniType:NXMActionSheetAnimationType = .SLIDE
-        if animationTypeSegment.selectedSegmentIndex == 1 {
-            aniType = .FADE
-        }
+        let typeIndxe = animationTypeSegment.selectedSegmentIndex
+        let type:NXMActionSheetAnimationType = (typeIndxe == 0 ? .slide : .fade)
         
-        switch preset {
-        case 0:
-            defaultShow(type: aniType)
-        case 1:
-            customShow(type: aniType)
-        case 2:
-            mixedShow(type: aniType)
-        default:
-            break
+        switch presetsSegment.selectedSegmentIndex {
+        case 0: defaultShow(type: type)
+        case 1: customShow(type: type)
+        case 2: mixedShow(type: type)
+        default: break
         }
-        
     }
     
     func defaultShow(type:NXMActionSheetAnimationType) {
         
-        NXMActionSheet(delegate: self, withType: type)
-            .add(NXMActionSheetData(.IMAGE(#imageLiteral(resourceName: "image"))))
-            .add(NXMActionSheetData(.ACTIVITY_INDICATOR(.gray)))
-            .add(NXMActionSheetData(.SLIDER(0.5, nil)))
-            .add(NXMActionSheetData(.LABEL("Label")))
-            .add(NXMActionSheetData(.BUTTON("Button", UIColor.brown, nil), withTouchClose: true))
+        NXMActionSheet(delegate: self, type: type)
+            .add(.init(.image(#imageLiteral(resourceName: "image"))))
+            .add(.init(.activityIndicator(.gray)))
+            .add(.init(.slider(0.5, nil)))
+            .add(.init(.label("Label")))
+            .add(.init(.button("Button", UIColor.brown, nil), withTouchClose: true))
             .show()
     }
-
+    
     func customShow(type:NXMActionSheetAnimationType) {
         
         CustomActionSheet(withType: type).show()
@@ -63,45 +55,50 @@ class ViewController: UIViewController, NXMActionSheetDelegate {
     
     func mixedShow(type:NXMActionSheetAnimationType) {
         
-        let datePicker:CustomDatePickerView = CustomDatePickerView.loadUINibView()
-        
-        NXMActionSheet(withType: type)
-            .add(NXMActionSheetData(.BUTTON("Select", UIColor.darkGray, { sender in
-                if let button = sender as? UIButton {
-                    print(button.titleLabel!.text!)
-                }
+        //whthout delegate
+        NXMActionSheet(type: type)
+            .add(.init(.button("Select", UIColor.darkGray, { sender in
+                print((sender as? UIButton)!.titleLabel!.text!)
             }), withTouchClose: true))
-        .add(NXMActionSheetData(.CUSTOM(datePicker)))
-        .show()
-    }
-    
-    
-    func didSelectActionItem(_ actionSheet:NXMActionSheet, withData:NXMActionSheetData) {
-        print("defaultShow didSelectActionItem")
-    }
-    
-    func actionSheetWillShow() {
-        print("defaultShow actionSheetWillShow")
-    }
-    
-    func actionSheetDidShow() {
-        print("defaultShow actionSheetDidShow")
-    }
-    
-    func actionSheetWillHide() {
-        print("defaultShow actionSheetWillHide")
-    }
-    
-    func actionSheetDidHide() {
-        print("defaultShow actionSheetDidHide")
-    }
-    
-    func actionSheetWillUpdate() {
-        print("defaultShow actionSheetWillUpdate")
-    }
-    
-    func actionSheetDidUpdate() {
-        print("defaultShow actionSheetDidUpdate")
+            .add(.init(.custom(CustomDatePickerView.loadView())))
+            .show()
     }
 }
 
+extension ViewController : NXMActionSheetDelegate {
+    
+    func didSelectActionItem(_ actionSheet:NXMActionSheet, withData:NXMActionSheetData) {
+        trace("default", withData.typeDescription)
+    }
+    
+    func actionSheetWillShow() {
+        trace("default")
+    }
+    
+    func actionSheetDidShow() {
+        trace("default")
+    }
+    
+    func actionSheetWillHide() {
+        trace("default")
+    }
+    
+    func actionSheetDidHide() {
+        trace("default")
+    }
+    
+    func actionSheetWillUpdate() {
+        trace("default")
+    }
+    
+    func actionSheetDidUpdate() {
+        trace("default")
+    }
+}
+
+extension NXMActionSheetDelegate {
+    
+    func trace(_ header:String, function:String = #function, _ message:String = "") {
+        print(header, function, message)
+    }
+}

@@ -9,9 +9,9 @@ import UIKit
 
 class NXMActionSheetItemCell : UITableViewCell {
     
-    func bindingSheetData(_ data:NXMActionSheetData) {
+    func bind(_ data:NXMActionSheetData) {
         
-        contentView.subviews.map{$0.removeFromSuperview()}|
+        contentView.subviews.forEach{$0.removeFromSuperview()}
         
         if let view = data.view {
             view.frame = bounds
