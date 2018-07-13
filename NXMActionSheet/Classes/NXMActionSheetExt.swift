@@ -87,7 +87,7 @@ extension UIView {
 
 /////////////////////////////////////////////////////////////////
 
-protocol UIViewLoadProtocol {
+protocol NXMUIViewLoadProtocol {
     
     associatedtype View
     
@@ -95,16 +95,16 @@ protocol UIViewLoadProtocol {
     static func loadView() -> View
 }
 
-extension UIViewLoadProtocol {
+extension NXMUIViewLoadProtocol {
     
     public static func loadView() -> Self {
         return Nib.instantiate(withOwner: Self.self, options: nil)[0] as! Self
     }
 }
 
-extension UIView : UIViewLoadProtocol {
+extension UIView : NXMUIViewLoadProtocol {
     
-    static var Nib: UINib {
+    public static var Nib: UINib {
         let fileName = description().components(separatedBy: ".").last!
         return UINib(nibName: fileName, bundle: Bundle(for: self))
     }
@@ -125,11 +125,11 @@ extension UIWindow {
 
 /////////////////////////////////////////////////////////////////
 
-typealias UIControlTargetClosure = (UIControl) -> ()
+typealias NXMUIControlTargetClosure = (UIControl) -> ()
 
 class ClosureWrapper: NSObject {
-    let closure: UIControlTargetClosure
-    init(_ closure: @escaping UIControlTargetClosure) {
+    let closure: NXMUIControlTargetClosure
+    init(_ closure: @escaping NXMUIControlTargetClosure) {
         self.closure = closure
     }
 }
@@ -140,7 +140,7 @@ extension UIControl {
         static var targetClosure = "targetClosure"
     }
     
-    private var targetClosure: UIControlTargetClosure? {
+    private var targetClosure: NXMUIControlTargetClosure? {
         get {
             guard let closureWrapper = objc_getAssociatedObject(self, &AssociatedKeys.targetClosure) as? ClosureWrapper else { return nil }
             return closureWrapper.closure
@@ -151,7 +151,7 @@ extension UIControl {
         }
     }
     
-    func addTargetClosure(closure: @escaping UIControlTargetClosure) {
+    func addTargetClosure(closure: @escaping NXMUIControlTargetClosure) {
         targetClosure = closure
         addTarget(self, action: #selector(closureAction), for: .touchUpInside)
     }
